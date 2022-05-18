@@ -21,6 +21,7 @@ public class WaveExpansion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collidedObject = new List<Collider>();
         /*TODO
         List<float> angle = new List<float>();
         for (float angle_i = 0; angle_i < 2 * Math.PI; angle_i += 2 * (float) Math.PI / 100) 
@@ -48,10 +49,19 @@ public class WaveExpansion : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             Debug.DrawRay(contact.point, contact.normal, Color.blue);
+            if (collision.collider.CompareTag("HasReverb") && !collidedObject.Contains(collision.collider)){
+                SpawnWave(contact.point, lifespan);
+                Debug.Log("Collision!");
+                collidedObject.Add(collision.collider);
+            }
         }
         //## For now, only draw normal vector of the collision point
     }
 
+    void OnTriggerStay(Collider collider) 
+    {
+
+    }
 
 /*  ###TODO
     void DrawCircle(Vector3 center, float radius, Vector3 normalV) {
@@ -70,10 +80,10 @@ public class WaveExpansion : MonoBehaviour
     }
     
     //Spawn Wave on the collider with set lifespan
-    void SpawnWave(Collider obstacle, float pLifespan) {
+    void SpawnWave(Vector3 position, float pLifespan) {
         WaveExpansion expandingWave = reverbWave.GetComponent<WaveExpansion>();
         expandingWave.SetLifespan(pLifespan);
-        Instantiate(reverbWave, obstacle.transform.position, obstacle.transform.rotation);
+        Instantiate(reverbWave, position, reverbWave.transform.rotation);
     }
 
 }

@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7373595571918751264
 Transform:
@@ -63,7 +63,8 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 2100000, guid: 7c42d94fb611ff0499c61026692340a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18f78b695945c241a13326a8dc4ac6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 100
-  expansionSpeed: 10
+  lifespan: 1000
+  expansionSpeed: 5
   reverbWave: {fileID: 7373595571918751268, guid: ef854f75c6f07a04282358af752ef79e, type: 3}
 --- !u!54 &1997477204305097290
 Rigidbody:

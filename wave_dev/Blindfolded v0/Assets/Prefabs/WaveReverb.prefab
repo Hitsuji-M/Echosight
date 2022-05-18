@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18f78b695945c241a13326a8dc4ac6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 100
+  lifespan: 58
   expansionSpeed: 10
   reverbWave: {fileID: 7373595571918751268}
