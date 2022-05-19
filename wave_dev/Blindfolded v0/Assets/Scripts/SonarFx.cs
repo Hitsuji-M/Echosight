@@ -69,6 +69,9 @@ public class SonarFx : MonoBehaviour
     // Reference to the shader.
     [SerializeField] Shader shader;
 
+    // Reference to the shader.
+    [SerializeField] Shader backgroundShader;
+
     // Private shader variables
     int baseColorID;
     int waveColorID;
@@ -87,13 +90,14 @@ public class SonarFx : MonoBehaviour
 
     void OnEnable()
     {
-        GetComponent<Camera>().SetReplacementShader(shader, null);
+        GetComponent<Camera>().SetReplacementShader(backgroundShader, null);
         Update();
     }
 
     void OnDisable()
     {
         GetComponent<Camera>().ResetReplacementShader();
+        Update();
     }
 
     void Update()
@@ -115,5 +119,21 @@ public class SonarFx : MonoBehaviour
             Shader.EnableKeyword("SONAR_SPHERICAL");
             Shader.SetGlobalVector(waveVectorID, _origin);
         }
+    }
+
+    public void OnToggle(bool boolState) 
+    {
+        GetComponent<Camera>().ResetReplacementShader();
+        if ( boolState ) 
+        {
+            Debug.Log("shader wave");
+            GetComponent<Camera>().SetReplacementShader(shader, null);
+        }
+        else 
+        {
+            Debug.Log("shader background");
+            GetComponent<Camera>().SetReplacementShader(backgroundShader, null);
+        }
+        Update();
     }
 }

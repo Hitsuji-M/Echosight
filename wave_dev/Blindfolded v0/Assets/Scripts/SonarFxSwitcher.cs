@@ -33,7 +33,6 @@ public class SonarFxSwitcher : MonoBehaviour
     SonarFx fx;
     float parameter;
     float target;
-
     public bool state {
         get { return target > 0.0f; }
         set { target = state ? 1.0f : 0.0f; }
@@ -68,5 +67,9 @@ public class SonarFxSwitcher : MonoBehaviour
     public void Toggle()
     {
         target = target > 0.0f ? 0.0f : 1.0f;
+
+        fx.OnToggle(state);
+        Debug.Log("Toggle state:");
+        Debug.Log(state);
     }
 }
