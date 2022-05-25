@@ -11,6 +11,7 @@ public class WaveShaderOnClick : MonoBehaviour
         _camera = Camera.main;
     }
 
+    
     /// <summary>
     /// If the mouse button is pressed, get the mouse position, convert it to a ray, and if the ray hits something, set the
     /// spawn point to the hit point
@@ -22,4 +23,5 @@ public class WaveShaderOnClick : MonoBehaviour
         if (!Physics.Raycast(ray, out var hit)) return;
         wave.Spawn = hit.point;
     }
+    
 }
