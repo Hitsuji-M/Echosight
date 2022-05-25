@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaveMaterial
-  m_Shader: {fileID: 4800000, guid: 67a6c0fa80cfea243a774ad68a39055a, type: 3}
+  m_Shader: {fileID: 4800000, guid: f2993d8979cb55146b15dba674a8e4cc, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -79,5 +79,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WaveOrigin: {r: -1.7008725, g: 0.26999998, b: 2.237334, a: 1}
+    - _WaveOrigin: {r: -3.9954476, g: 2.6839857, b: 9.5, a: 0.3657422}
   m_BuildTextureStacks: []
