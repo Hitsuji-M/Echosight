@@ -15,6 +15,7 @@ public class BtnScriptGame : MonoBehaviour
     {
         _btn = GetComponent<Button>();
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Debug.Log("Start Here");
         switch (btnType)
         {
             case 0:
@@ -36,11 +37,13 @@ public class BtnScriptGame : MonoBehaviour
 
     private void ResetRoom()
     {
+        _gm.UpdateUI();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void QuitRoom()
     {
+        _gm.UpdateUI();
         SceneManager.LoadScene("Scenes/title_screen");
     }
 }
