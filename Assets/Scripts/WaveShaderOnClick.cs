@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class WaveShaderOnClick : MonoBehaviour
 {
-    public WaveShaderExpansion wave;
+    public GameObject waveController;
 
-    int waveIndex;
+    private WaveShaderExpansion controller;
+    
     void Start()
     {
-        waveIndex = 0;
+        controller = waveController.GetComponent<WaveShaderExpansion>();
     }
     // Update is called once per frame
     /// <summary>
@@ -24,8 +25,7 @@ public class WaveShaderOnClick : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                wave.Spawn(hit.point, waveIndex);
-                waveIndex = (waveIndex + 1) % 10;
+                controller.Spawn(hit.point);
             }
         }
     }

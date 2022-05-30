@@ -77,7 +77,7 @@ Material:
     - _WaveWidth: 1.06
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
+    - _Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _WaveOrigin: {r: -0.03796026, g: 1.2408566, b: -0.49855518, a: 0}
   m_BuildTextureStacks: []
