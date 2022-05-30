@@ -21,6 +21,6 @@ public class BouncingBall : MonoBehaviour
             controller.Spawn(collision.GetContact(i).point);
             Debug.Log(collision.GetContact(i).point);
         }
-        bouncingBallRb.AddForce(Random.onUnitSphere * 10 + Vector3.up * 2, ForceMode.Impulse);
+        bouncingBallRb.AddForce(Random.onUnitSphere * 10 + Vector3.up * 5, ForceMode.Impulse);
     }
 }
