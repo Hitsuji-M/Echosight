@@ -1,27 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveShaderOnClick : MonoBehaviour
 {
     public WaveShaderExpansion wave;
-    private Camera _camera;
 
+    int waveIndex;
+    void Start()
+    {
+        waveIndex = 0;
+    }
     // Update is called once per frame
-    private void Awake()
-    {
-        _camera = Camera.main;
-    }
-
-    
     /// <summary>
-    /// If the mouse button is pressed, get the mouse position, convert it to a ray, and if the ray hits something, set the
-    /// spawn point to the hit point
+    /// If the mouse is clicked, then the raycast will be casted from the camera to the mouse position.
+    /// If the raycast hits something, then the spawn point will be set to the hit point
     /// </summary>
-    private void Update()
+    void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
-        var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out var hit)) return;
-        wave.Spawn = hit.point;
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                wave.Spawn(hit.point, waveIndex);
+                waveIndex = (waveIndex + 1) % 10;
+            }
+        }
     }
-    
 }

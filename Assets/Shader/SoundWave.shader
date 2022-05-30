@@ -2,13 +2,9 @@ Shader "Custom/SoundWave"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-        _WaveOrigin ("Wave Origin", Vector) = (0, 0, 0, 0)
-        _WaveDistance ("Wave Distance", Float) = 0
-        _WaveWidth ("Wave Width", Float) = 0.1
 
 
     }
@@ -36,34 +32,30 @@ Shader "Custom/SoundWave"
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
-        fixed4 _WaveOrigin;
-        float _WaveDistance;
-        float _WaveWidth;
-
-
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
-
+        fixed4 _WaveOrigin[10];
+        fixed2 _WaveParam;
+        float waveColor;
+        // A shader that is used to create a wave effect.
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            float distance = length( IN.worldPos.xyz - _WaveOrigin.xyz ) - (_WaveDistance * _WaveOrigin.w);
-            float lowerDistance = distance - _WaveWidth * 0.5;
-            float upperDistance = distance + _WaveWidth * 0.5;
-
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex)* _Color;
-            // Albedo comes from a texture tinted by color
-            float waveColor = pow(max (0, (1 - (abs(distance)/(_WaveWidth*0.5)) )) , 3) 
-            * (lowerDistance < 0 && upperDistance > 0 );
-            o.Albedo = waveColor * c.rgb * (1 - _WaveOrigin.w);
+
+            for (int i = 0; i < 10; i++) {
+            /************/
+                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParam[0] * _WaveOrigin[i].w);
+                float lowerDistance = distance - _WaveParam[1] * 0.5;
+                float upperDistance = distance + _WaveParam[1] * 0.5;
+
+                // Albedo comes from a texture tinted by color
+                waveColor += pow(max (0, (1 - (abs(distance)/(_WaveParam[1]*0.5)) ) * 3) , 3) //TODO REMOVE *3
+                * (lowerDistance < 0 && upperDistance > 0 )* pow((1 - _WaveOrigin[i].w), 10);
+            }
+            o.Emission = waveColor * c.rgb ;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness; 
             o.Alpha = c.a;
-            o.Emission = o.Albedo;
+            o.Albedo = 0;
         }
         ENDCG
     }
