@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - HasReverb
+  - door_button
+  - door
   layers:
   - Default
   - TransparentFX

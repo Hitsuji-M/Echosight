@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaveMaterial
-  m_Shader: {fileID: 4800000, guid: f2993d8979cb55146b15dba674a8e4cc, type: 3}
+  m_Name: DoorMaterial
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -73,11 +73,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveDistance: 40
-    - _WaveWidth: 1.06
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.735849, g: 0.36388797, b: 0.13536847, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WaveOrigin: {r: -0.08019226, g: 1.1641908, b: -0.4935236, a: 0}
   m_BuildTextureStacks: []
