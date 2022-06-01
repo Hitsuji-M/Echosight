@@ -7,10 +7,14 @@ public class GameManager : MonoBehaviour
     private bool _playing;
     public GameObject canvas;
     private GameObject _door;
+    private bool _isDoorNull;
+    private bool _iscanvasNull;
 
     // Start is called before the first frame update
     void Start()
     {
+        _iscanvasNull = canvas == null;
+        _isDoorNull = _door == null;
         _playing = true;
         _door = GameObject.FindWithTag("door");
     }
@@ -25,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (canvas == null) return;
+        if (_iscanvasNull) return;
         
         _playing = !_playing;
         canvas.SetActive(!_playing);
@@ -34,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (_door == null) return;
+        if (_isDoorNull) return;
         _door.transform.Translate(Vector3.forward);
     }
 }
