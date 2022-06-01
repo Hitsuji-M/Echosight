@@ -5,18 +5,15 @@ using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class InteractWithBInteraction : MonoBehaviour
 {
     private Camera _camera;
-    public GameObject btnDoor,door;
-    private Animator _animator;
+    public GameObject btnDoor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
         _camera = Camera.main;
-        _animator = door.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,7 +23,7 @@ public class Interaction : MonoBehaviour
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out var hit)) return;
         if (!(hit.collider.gameObject == btnDoor)) return;
-        _animator.SetTrigger("BountonPousse");
+        hit.collider.gameObject.GetComponent<DoorTrigerer>().triggerDoor();
     }
 }
 
