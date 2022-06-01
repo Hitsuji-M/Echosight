@@ -228,7 +228,6 @@ GameObject:
   - component: {fileID: 1043102155}
   - component: {fileID: 1043102154}
   - component: {fileID: 1043102153}
-  - component: {fileID: 1043102156}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -302,19 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1043102156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043102152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 652b79b3b529eab4d8e0c0f25538452d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnDoor: {fileID: 1646562685}
 --- !u!1 &1646562685
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124c309d491935b4f867dfb7db780f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2082906938}
 --- !u!1 &1752396226
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +600,10 @@ PrefabInstance:
     - target: {fileID: -516098083770646512, guid: 275363b047c8ff44fa82c97f605a4dcc, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 275363b047c8ff44fa82c97f605a4dcc, type: 3}
+      propertyPath: m_TagString
+      value: final_door
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 275363b047c8ff44fa82c97f605a4dcc, type: 3}
       propertyPath: m_Name

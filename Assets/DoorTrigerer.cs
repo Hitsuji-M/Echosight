@@ -1,20 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorTrigerer : MonoBehaviour
 {
-    public GameObject door;
+    private GameObject _door;
     private Animator _animator;
-    
+    private static readonly int BountonPousse = Animator.StringToHash("BountonPousse");
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _animator = door.GetComponent<Animator>();
+        _door = GameObject.FindWithTag("final_door");
+        _animator = _door.GetComponent<Animator>();
     }
 
-    public void triggerDoor()
+
+    private void OnMouseDown()
     {
-        _animator.SetTrigger("BountonPousse");
+        TriggerDoor();
+    }
+
+    private void TriggerDoor()
+    {
+        _animator.SetTrigger(BountonPousse);
     }
 }

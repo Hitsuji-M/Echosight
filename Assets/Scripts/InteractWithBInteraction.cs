@@ -9,21 +9,19 @@ public class InteractWithBInteraction : MonoBehaviour
 {
     private Camera _camera;
     public GameObject btnDoor;
-
+    private DoorTrigerer _doorTrigerer;
+    
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
+        _doorTrigerer = btnDoor.GetComponent<DoorTrigerer>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void OnMouseDown()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
-        var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out var hit)) return;
-        if (!(hit.collider.gameObject == btnDoor)) return;
-        hit.collider.gameObject.GetComponent<DoorTrigerer>().triggerDoor();
+
+        // _doorTrigerer.TriggerDoor();
     }
 }
 

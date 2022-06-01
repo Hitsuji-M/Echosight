@@ -6,7 +6,7 @@ TagManager:
   tags:
   - HasReverb
   - door_button
-  - door
+  - final_door
   layers:
   - Default
   - TransparentFX
