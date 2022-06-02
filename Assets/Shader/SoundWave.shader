@@ -3,10 +3,8 @@ Shader "Custom/SoundWave"
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
-
-
+        _Isolation ("Sound Isolation", Range(0,1)) = 0
+        _Modifier("Sound Color Modifier", Color) = (0, 0, 0, 0)
     }
     SubShader
     {
@@ -29,31 +27,30 @@ Shader "Custom/SoundWave"
 
         };
 
-        half _Glossiness;
-        half _Metallic;
+        half _Isolation;
         fixed4 _Color;
+        fixed4 _Modifier;
         fixed4 _WaveOrigin[10];
         fixed2 _WaveParam;
         float waveColor;
         // A shader that is used to create a wave effect.
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex)* _Color;
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex)* (_Color - _Modifier);
 
             for (int i = 0; i < 10; i++) {
             /************/
-                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParam[0] * _WaveOrigin[i].w);
+                float distance = (length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParam[0] * _WaveOrigin[i].w));
                 float lowerDistance = distance - _WaveParam[1] * 0.5;
                 float upperDistance = distance + _WaveParam[1] * 0.5;
 
                 // Albedo comes from a texture tinted by color
-                waveColor += pow(max (0, (1 - (abs(distance)/(_WaveParam[1]*0.5)) ) * 3) , 3) //TODO REMOVE *3
-                * (lowerDistance < 0 && upperDistance > 0 )* pow((1 - _WaveOrigin[i].w), 10);
+                waveColor += pow(max (0, (1 - (abs(distance)/(_WaveParam[1]*0.5)) ) * 3) , 3)
+                * (lowerDistance < 0 && upperDistance > 0 ) * pow((1 - _WaveOrigin[i].w), 10) * (1 - _Isolation);
             }
             o.Emission = waveColor * c.rgb ;
             // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness; 
+
             o.Alpha = c.a;
             o.Albedo = 0;
         }
