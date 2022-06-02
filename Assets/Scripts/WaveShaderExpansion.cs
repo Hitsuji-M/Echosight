@@ -10,6 +10,8 @@ public class WaveShaderExpansion : MonoBehaviour
     public Material material;
     public Vector4[] waveOrigin;
 
+    public GameObject outlineTrigger;
+
     private static readonly Vector4[] emptyVector = new Vector4[] { new Vector4(0, 0, 0, 1) };
     private int waveIndex;
 
@@ -28,8 +30,10 @@ public class WaveShaderExpansion : MonoBehaviour
     public void Spawn(Vector3 spawnPoint) 
     {
         waveOrigin[waveIndex] = ( new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0));
+        Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
         waveIndex = (waveIndex + 1) % 10;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,9 +45,10 @@ public class WaveShaderExpansion : MonoBehaviour
                                         waveOrigin[i].z,
                                         Mathf.Min(waveOrigin[i].w + Time.deltaTime/4, 1));
             material.SetVectorArray("_WaveOrigin", waveOrigin);
+
         }
         //Debug.Log(material.GetVectorArray("_WaveOrigin")[1]);
         //Debug.Log(material.GetVectorArray("_WaveParam")[0]);
-        
+
     }
 }

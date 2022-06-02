@@ -36,9 +36,19 @@ namespace cakeslice
 		public SpriteRenderer SpriteRenderer { get; private set; }
 		public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
 		public MeshFilter MeshFilter { get; private set; }
+		public float OutlinePersistance; //seconds
 
 		public int color;
 		public bool eraseRenderer;
+		bool isOutlined;
+		float outlinePesistanceVar;
+
+		void Start()
+		{
+			OutlineEffect.Instance?.RemoveOutline(this);
+			isOutlined = false;
+			outlinePesistanceVar = 0;
+		}
 
 		private void Awake()
 		{
@@ -48,14 +58,39 @@ namespace cakeslice
 			MeshFilter = GetComponent<MeshFilter>();
 		}
 
-		void OnEnable()
+		public void OnToggle() 
 		{
-			OutlineEffect.Instance?.AddOutline(this);
-		}
+			if (isOutlined) {
+				OnDisable();
+			}
+			else 
+			{
+				OnEnable();
+			}
 
-		void OnDisable()
+		}
+		
+		public void OnDisable()
 		{
 			OutlineEffect.Instance?.RemoveOutline(this);
+			isOutlined = !isOutlined;
+		}
+
+		public void OnEnable()
+		{
+			OutlineEffect.Instance?.AddOutline(this);
+			isOutlined = !isOutlined;
+			outlinePesistanceVar = OutlinePersistance;
+		}
+
+		void Update()
+		{
+			outlinePesistanceVar = Mathf.Max(0, outlinePesistanceVar - Time.deltaTime);
+
+			if (outlinePesistanceVar == 0) 
+			{
+				OnDisable();
+			}
 		}
 
 		private Material[] _SharedMaterials;
