@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - material: {fileID: 2100000, guid: 51d822391230a9b4793191983fed1d1c, type: 2}
+  - material: {fileID: 2100000, guid: d298806b6a1df874bb50a57d26bb95fd, type: 2}
   executionOrder: 0
-  icon: {instanceID: 0}
+  icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

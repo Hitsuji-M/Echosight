@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaveMaterial
+  m_Name: CarpetMaterial
   m_Shader: {fileID: 4800000, guid: 36d4143a46817574da268b8d598b5b7c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -65,7 +65,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Isolation: 0
+    - _Isolation: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -74,16 +74,9 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveDistance: 40
-    - _WaveWidth: 1.06
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-<<<<<<< HEAD
-    - _WaveOrigin: {r: 5.113883, g: 2.4960892, b: 9.5, a: 0.41582993}
-=======
-    - _Modifier: {r: 0, g: 0, b: 0, a: 0}
-    - _WaveOrigin: {r: -0.03796026, g: 1.2408566, b: -0.49855518, a: 0}
->>>>>>> wave
+    - _Modifier: {r: 1, g: 0.25098038, b: 0.44689393, a: 0}
   m_BuildTextureStacks: []
