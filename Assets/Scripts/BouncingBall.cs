@@ -19,7 +19,7 @@ public class BouncingBall : MonoBehaviour
         for (int i = 0; i < collision.contactCount; i++) 
         {
             controller.Spawn(collision.GetContact(i).point);
-            Debug.Log(collision.GetContact(i).point);
+            // Debug.Log(collision.GetContact(i).point);
         }
         bouncingBallRb.AddForce(Random.onUnitSphere * 10 + Vector3.up * 2, ForceMode.Impulse);
     }
