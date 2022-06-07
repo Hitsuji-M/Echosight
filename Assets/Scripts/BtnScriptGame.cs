@@ -15,7 +15,6 @@ public class BtnScriptGame : MonoBehaviour
     {
         _btn = GetComponent<Button>();
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        Debug.Log("Start Here");
         switch (btnType)
         {
             case 0:
