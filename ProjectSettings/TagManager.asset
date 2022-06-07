@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HasReverb
   - Outlinable
+  - final_door
   layers:
   - Default
   - TransparentFX
