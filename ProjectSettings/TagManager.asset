@@ -7,6 +7,7 @@ TagManager:
   - HasReverb
   - Outlinable
   - final_door
+  - Item
   layers:
   - Default
   - TransparentFX
