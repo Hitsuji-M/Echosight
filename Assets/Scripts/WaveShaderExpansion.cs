@@ -5,17 +5,15 @@ using UnityEngine;
 public class WaveShaderExpansion : MonoBehaviour
 {
     public Color waveColor;
-    public float impactStrength;
-    public float soundSharpness;
     public Material material;
     public Vector4[] waveParams;
     public Vector4[] waveOrigin;
-
     public GameObject outlineTrigger;
-    private int waveIndex;
+    public int waveIndex;
     int nbWaves;
 
-    void Start(){
+    void Start()
+    {
         waveOrigin = new Vector4[20];
         waveParams = new Vector4[20];
         waveIndex = 0;
@@ -26,13 +24,14 @@ public class WaveShaderExpansion : MonoBehaviour
         }
         nbWaves = waveOrigin.Length;
         material.SetColor("_Color", waveColor);
+
     }
     public void Spawn(Vector3 spawnPoint, int waveStrength = 10, float waveSharpness = 0.5f, float waveFade = 1, float waveColorIntensity = 1) 
     {
         waveOrigin[waveIndex] = new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0);
         waveParams[waveIndex] = new Vector4(waveStrength, waveSharpness, waveFade, waveColorIntensity);
         Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
-        waveIndex = (waveIndex + 1) % 10;
+        waveIndex = (waveIndex + 1) % nbWaves;
         material.SetVectorArray("_WaveParams", waveParams);
     }
 
@@ -44,10 +43,11 @@ public class WaveShaderExpansion : MonoBehaviour
             waveOrigin[i] = new Vector4(waveOrigin[i].x,
                                         waveOrigin[i].y,
                                         waveOrigin[i].z,
-                                        Mathf.Min(waveOrigin[i].w + Time.deltaTime/4, 1));
+                                        Mathf.Min(waveOrigin[i].w + Time.deltaTime, 1));
             material.SetVectorArray("_WaveOrigin", waveOrigin);
-
+            //Debug.Log(waveOrigin[0]);
         }
+
         //Debug.Log(material.GetVectorArray("_WaveOrigin")[1]);
         //Debug.Log(material.GetVectorArray("_WaveParam")[0]);
 

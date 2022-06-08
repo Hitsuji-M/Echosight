@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - waveController: {fileID: 2589008864014918432, guid: 0a84ef9783d2e5e45b15ba01b583c376, type: 3}
+  - waveController: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

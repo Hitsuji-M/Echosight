@@ -18,7 +18,7 @@ public class TakeItem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if ( Input.GetKeyDown("e") )
         {
@@ -41,7 +41,7 @@ public class TakeItem : MonoBehaviour
 
                 }
             }
-            Debug.Log(itemInHand);
+            //Debug.Log(itemInHand);
             
         }
 
@@ -61,5 +61,6 @@ public class TakeItem : MonoBehaviour
     void DropItem(GameObject item)
     {
         item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.6f, hand.transform.position.z);
+        item.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

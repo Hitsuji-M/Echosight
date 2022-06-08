@@ -5,6 +5,8 @@ using UnityEngine;
 public class CollisionTrigger : MonoBehaviour
 {
     public GameObject waveController;
+    public AudioClip[] soundEffects;
+    private AudioSource soundSource;
     private WaveShaderExpansion controller;
     private Rigidbody rb;
 
@@ -13,14 +15,18 @@ public class CollisionTrigger : MonoBehaviour
     {
         controller = waveController.GetComponent<WaveShaderExpansion>();
         rb = GetComponent<Rigidbody>();
+        soundSource = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        for (int i = 0; i < collision.contactCount; i++) 
+        //Debug.Log(rb.velocity);
+        for (int i = 0; i < collision.contactCount; i++)
         {
+            Debug.Log(rb.velocity.magnitude);
             controller.Spawn(collision.GetContact(i).point);
-            // Debug.Log(collision.GetContact(i).point);
+            soundSource.PlayOneShot(soundEffects[0], 1.0f);
+            
         }
     }
 }
