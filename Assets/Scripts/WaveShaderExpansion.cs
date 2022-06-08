@@ -8,36 +8,37 @@ public class WaveShaderExpansion : MonoBehaviour
     public float impactStrength;
     public float soundSharpness;
     public Material material;
+    public Vector4[] waveParams;
     public Vector4[] waveOrigin;
 
     public GameObject outlineTrigger;
-
-    private static readonly Vector4[] emptyVector = new Vector4[] { new Vector4(0, 0, 0, 1) };
     private int waveIndex;
+    int nbWaves;
 
     void Start(){
-        waveOrigin = new Vector4[10];
+        waveOrigin = new Vector4[20];
+        waveParams = new Vector4[20];
         waveIndex = 0;
-        for (int i = 0; i < 10; i++) 
+        for (int i = 0; i < 20; i++) 
         {
             waveOrigin[i] = new Vector4(0, 0, 0, 1);
+            waveParams[i] = new Vector4(10, 0.5f, 1, 1); //impactStregth, width, fadeSpeed, colorIntensity
         }
-        Vector2 waveParam = new Vector2(impactStrength, soundSharpness);
-
-        material.SetVector("_WaveParam", waveParam);
+        nbWaves = waveOrigin.Length;
         material.SetColor("_Color", waveColor);
     }
-    public void Spawn(Vector3 spawnPoint) 
+    public void Spawn(Vector3 spawnPoint, int waveStrength = 10, float waveSharpness = 0.5f, float waveFade = 1, float waveColorIntensity = 1) 
     {
-        waveOrigin[waveIndex] = ( new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0));
+        waveOrigin[waveIndex] = new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0);
+        waveParams[waveIndex] = new Vector4(waveStrength, waveSharpness, waveFade, waveColorIntensity);
         Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
         waveIndex = (waveIndex + 1) % 10;
+        material.SetVectorArray("_WaveParams", waveParams);
     }
 
     // Update is called once per frame
     void Update()
     {
-        int nbWaves = waveOrigin.Length;
         material.SetInt("nbWave", nbWaves);
         for (int i = 0; i < nbWaves; i++) {
             waveOrigin[i] = new Vector4(waveOrigin[i].x,

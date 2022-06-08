@@ -32,30 +32,32 @@ Shader "Custom/SoundWave"
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
-        fixed4 _WaveOrigin[10];
-        fixed2 _WaveParam;
+        fixed4 _WaveOrigin[20];
+        fixed4 _WaveParams[20];
         float waveColor;
         // A shader that is used to create a wave effect.
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex)* _Color;
 
-            for (int i = 0; i < 10; i++) {
-            /************/
-                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParam[0] * _WaveOrigin[i].w);
-                float lowerDistance = distance - _WaveParam[1] * 0.5;
-                float upperDistance = distance + _WaveParam[1] * 0.5;
+            for (int i = 0; i < 20; i++) {
+                
+                /**********/
+                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParams[i][0] * _WaveOrigin[i].w);
+                float lowerDistance = distance - _WaveParams[i][1] * 0.5;
+                float upperDistance = distance + _WaveParams[i][1] * 0.5;
 
                 // Albedo comes from a texture tinted by color
-                waveColor += pow(max (0, (1 - (abs(distance)/(_WaveParam[1]*0.5)) ) * 3) , 3) //TODO REMOVE *3
-                * (lowerDistance < 0 && upperDistance > 0 )* pow((1 - _WaveOrigin[i].w), 10);
+                waveColor += pow(max (0, (1 - (abs(distance)/(_WaveParams[i][1]*0.5)) ) * 3) , 3)
+                * (lowerDistance < 0 && upperDistance > 0 ) * pow((1 - _WaveOrigin[i].w), _WaveParams[i][2]) * _WaveParams[i][3];
             }
             o.Emission = waveColor * c.rgb ;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness; 
             o.Alpha = c.a;
-            o.Albedo = 0;
+            o.Albedo = o.Emission;
+
         }
         ENDCG
     }
