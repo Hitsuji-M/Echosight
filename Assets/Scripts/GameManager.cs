@@ -28,14 +28,8 @@ public class GameManager : MonoBehaviour
     {
         _playing = !_playing;
         canvas.SetActive(!_playing);
-        SetUpPlayer(_playing);
+        Cursor.lockState = _playing ? CursorLockMode.Locked : CursorLockMode.Confined;
         Time.timeScale = (_playing ? 1 : 0);
     }
-
-    private void SetUpPlayer(bool isActive)
-    {
-        _scc.enableCameraControl = isActive;
-        _scc.enableMovementControl = isActive;
-        _scc.enableFootstepSounds = isActive;
-    }
+    
 }
