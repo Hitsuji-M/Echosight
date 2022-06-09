@@ -9,10 +9,13 @@ public class WaveShaderOnClick : MonoBehaviour
     private WaveShaderExpansion controller;
     
     int incremental;
+    float incrementalf;
+
     void Start()
     {
         controller = waveController.GetComponent<WaveShaderExpansion>();
         incremental = 1;
+        incrementalf = 1f;
     }
     // Update is called once per frame
     /// <summary>
@@ -27,7 +30,8 @@ public class WaveShaderOnClick : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                controller.Spawn(hit.point, waveFade : incremental);
+                controller.Spawn(hit.point, waveSharpness : 0.2f, waveStrength : incremental, waveFade : incrementalf/2);
+                incrementalf = incrementalf + 1;
                 incremental++;
 
             }

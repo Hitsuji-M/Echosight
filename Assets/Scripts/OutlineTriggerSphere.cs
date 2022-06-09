@@ -20,7 +20,7 @@ public class OutlineTriggerSphere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifespan += Time.deltaTime / 4;
+        lifespan += Time.deltaTime;
         sphereCollider.radius = maxRadius * lifespan;
         if (lifespan > 1)
         {

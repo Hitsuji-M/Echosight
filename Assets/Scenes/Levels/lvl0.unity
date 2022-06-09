@@ -191,8 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveController: {fileID: 308342053}
-  soundEffects:
-  - {fileID: 8300000, guid: ba59f28172606c44b8b603324679ed57, type: 3}
+  soundSharpness: 0.2
 --- !u!82 &12710019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1085,7 +1084,7 @@ MonoBehaviour:
   waveParams: []
   waveOrigin: []
   outlineTrigger: {fileID: 6722262604372419616, guid: fa225baa3d1b52549822227297888b7f, type: 3}
-  waveIndex: 0
+  waveSpeed: 10
 --- !u!4 &308342056
 Transform:
   m_ObjectHideFlags: 0
@@ -1363,8 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveController: {fileID: 308342053}
-  soundEffects:
-  - {fileID: 8300000, guid: ba59f28172606c44b8b603324679ed57, type: 3}
+  soundSharpness: 0.2
 --- !u!82 &435963281
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2220,8 +2218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveController: {fileID: 308342053}
-  soundEffects:
-  - {fileID: 8300000, guid: ba59f28172606c44b8b603324679ed57, type: 3}
+  soundSharpness: 0.2
 --- !u!82 &588589401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2325,6 +2322,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: fillAmount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.g
+      value: 0.7232704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.r
+      value: 0.7232704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049389783736944073, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineThickness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6049389784952220744, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_RootOrder
       value: 1
