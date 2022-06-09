@@ -12,7 +12,8 @@ public class OutlineTriggerSphere : MonoBehaviour
     void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
-        maxRadius = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>().impactStrength;
+        //maxRadius = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>().impactStrength;
+        maxRadius = 10;
         lifespan = 0;
     }
 
@@ -29,7 +30,7 @@ public class OutlineTriggerSphere : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Outlinable") || other.CompareTag("Player"))
+        if (other.CompareTag("Outlinable") || other.CompareTag("Item"))
         {
             other.gameObject.GetComponent<cakeslice.Outline>().OnEnable();
             // Debug.Log("outline hit");
