@@ -1606,7 +1606,6 @@ public interface ICollectable{
 }
 #endregion
 
-
 #region Editor Scripting
 #if UNITY_EDITOR
 [CustomEditor(typeof(SUPERCharacterAIO))]
