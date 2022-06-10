@@ -6,7 +6,6 @@ public class TakeItem : MonoBehaviour
 {
     GameObject itemInHand;
     GameObject hand;
-
     bool isGrabbed;
 
     // Start is called before the first frame update
@@ -14,10 +13,10 @@ public class TakeItem : MonoBehaviour
     {
         isGrabbed = false;   
         hand = GameObject.Find("Hand");
-
     }
 
     // Update is called once per frame
+    // Pick up items on E
     void LateUpdate()
     {
         if ( Input.GetKeyDown("e") )
@@ -38,11 +37,8 @@ public class TakeItem : MonoBehaviour
                         isGrabbed = !isGrabbed;
                         itemInHand = hit.collider.gameObject;
                     }
-
                 }
-            }
-            //Debug.Log(itemInHand);
-            
+            }            
         }
 
         if (isGrabbed)
@@ -51,8 +47,6 @@ public class TakeItem : MonoBehaviour
         }
 
     }
-
-    float angle;
     void FloatingItem(GameObject item)
     {
         item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.5f, hand.transform.position.z);

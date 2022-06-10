@@ -6,7 +6,6 @@ public class OutlineTriggerSphere : MonoBehaviour
 {
     SphereCollider sphereCollider;
     public float maxRadius;
-    cakeslice.Outline objectOutline;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +14,7 @@ public class OutlineTriggerSphere : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Expands the sphere collider until it reaches its max radius
     void Update()
     {
         sphereCollider.radius += Time.deltaTime * WaveShaderExpansion.waveSpeed;
@@ -24,13 +24,12 @@ public class OutlineTriggerSphere : MonoBehaviour
         }
     }
 
+    //Outline object on trigger with the collider
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Outlinable") || other.CompareTag("Item"))
         {
             other.gameObject.GetComponent<cakeslice.Outline>().OnEnable();
-            // Debug.Log("outline hit");
-            // Debug.Log(other + other.tag);
         }
     }
 }
