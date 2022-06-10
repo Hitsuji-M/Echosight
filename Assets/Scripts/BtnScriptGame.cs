@@ -1,12 +1,17 @@
 //using System.Collections;
 //using System.Collections.Generic;
+
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class BtnScriptGame : MonoBehaviour
+public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Button _btn;
+    private TextMeshProUGUI _btnTxt;
+    private Image _btnImg;
     private GameManager _gm;
     public int btnType;
 
@@ -14,6 +19,8 @@ public class BtnScriptGame : MonoBehaviour
     void Start()
     {
         _btn = GetComponent<Button>();
+        _btnTxt = GetComponentInChildren<TextMeshProUGUI>();
+        _btnImg = GetComponent<Image>();
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         switch (btnType)
         {
@@ -27,6 +34,19 @@ public class BtnScriptGame : MonoBehaviour
                 _btn.onClick.AddListener(QuitRoom);
                 break;
         }
+    }
+    
+    public void OnPointerEnter (PointerEventData eventData)
+    {
+        _btnImg.color = Color.white;
+        _btnTxt.color = Color.black;
+    }
+ 
+    public void OnPointerExit (PointerEventData eventData)
+    {
+        Debug.Log("Passage");
+        _btnImg.color = Color.black;
+        _btnTxt.color = Color.white;
     }
 
     private void ResumeGame()
@@ -42,7 +62,8 @@ public class BtnScriptGame : MonoBehaviour
 
     private void QuitRoom()
     {
-        _gm.UpdateUI();
+        _gm.SetCursorMvmt(false);
+        _gm.SetTimeScale(true);
         SceneManager.LoadScene("Scenes/title_screen");
     }
 }

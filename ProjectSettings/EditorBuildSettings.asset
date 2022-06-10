@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/title_screen.unity
     guid: 322d046351a07564b851a056944fbc55
   - enabled: 1
+    path: Assets/Scenes/controls.unity
+    guid: e4292b7e636d61f4e90a7f36d756378a
+  - enabled: 1
     path: Assets/Scenes/creds.unity
     guid: 5cfd8e4857c559044b9f321b7991138e
+  - enabled: 1
+    path: Assets/Scenes/Levels/lvl0.unity
+    guid: f94569be18e1ace48ba873038ca82e8b
   - enabled: 1
     path: Assets/Scenes/game.unity
     guid: 8ddbd25f360cd8047a34cfb4b180a4b2
