@@ -31,7 +31,6 @@ public class WaveShaderOnClick : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 controller.Spawn(hit.point, waveStrength: 10, waveIntensity: incrementalf/10);
-                Debug.Log(incrementalf/10);
                 incrementalf = incrementalf - 1;
                 incremental++;
 

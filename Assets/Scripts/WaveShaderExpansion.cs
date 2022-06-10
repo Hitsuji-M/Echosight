@@ -35,7 +35,7 @@ public class WaveShaderExpansion : MonoBehaviour
     }
 
     float maxRadius;
-    OutlineTriggerSphere outlineTriggerCs;
+    ////////// OutlineTriggerSphere outlineTriggerCs;
     // Spawns a sound wave at position given
     // Spawns an outline trigger sphere with max radius equal to wave strengh parameter
     // waveStrength [0, infinity[
@@ -50,11 +50,11 @@ public class WaveShaderExpansion : MonoBehaviour
         radius[waveIndex] = 0;
         material.SetVectorArray("_WaveParams", waveParams);
 
-        /***************Outline Trigger Sphere****************/
-        maxRadius = waveParams[waveIndex][0];
-        outlineTriggerCs = outlineTrigger.GetComponent<OutlineTriggerSphere>();
-        outlineTriggerCs.maxRadius = maxRadius;
-        Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
+        /***************Outline Trigger Sphere****************/ // TODO
+        ///////////maxRadius = waveParams[waveIndex][0];
+        ///////////outlineTriggerCs = outlineTrigger.GetComponent<OutlineTriggerSphere>();
+        ///////////outlineTriggerCs.maxRadius = maxRadius;
+        ///////////Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
 
         /*****************Switch to next wave*****************/
         waveIndex = (waveIndex + 1) % nbWaves;
