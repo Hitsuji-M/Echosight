@@ -1084,7 +1084,7 @@ MonoBehaviour:
   waveParams: []
   waveOrigin: []
   outlineTrigger: {fileID: 6722262604372419616, guid: fa225baa3d1b52549822227297888b7f, type: 3}
-  waveSpeed: 10
+  waveSpeed: 1
 --- !u!4 &308342056
 Transform:
   m_ObjectHideFlags: 0

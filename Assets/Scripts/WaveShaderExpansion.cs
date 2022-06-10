@@ -10,10 +10,13 @@ public class WaveShaderExpansion : MonoBehaviour
     public Vector4[] waveOrigin;
 
     public GameObject outlineTrigger;
-    public float waveSpeed;
+    public static float waveSpeed = 10;
     private int waveIndex;
     int nbWaves;
     float[] radius;
+
+    float maxRadius;
+    OutlineTriggerSphere outlineTriggerCs;
 
     void Start(){
         waveOrigin = new Vector4[20];
@@ -31,16 +34,20 @@ public class WaveShaderExpansion : MonoBehaviour
     }
     public void Spawn(Vector3 spawnPoint, float waveStrength = 10, float waveSharpness = 0.5f, float waveFade = 5, float waveOffset = 0f) 
     {
+        /****************Spawn new sound wave*****************/
         waveOrigin[waveIndex] = new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0);
         waveParams[waveIndex] = new Vector4(waveStrength, waveSharpness, waveFade, waveOffset);
         radius[waveIndex] = 0;
         //Debug.Log(radius[waveIndex]);
-
-        Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
         waveIndex = (waveIndex + 1) % nbWaves;
         material.SetVectorArray("_WaveParams", waveParams);
         //Debug.Log(waveStrength);
 
+        /***************Outline Trigger Sphere****************/
+        maxRadius = waveParams[waveIndex][0];
+        outlineTriggerCs = outlineTrigger.GetComponent<OutlineTriggerSphere>();
+        outlineTriggerCs.maxRadius = maxRadius;
+        Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
     }
 
     // Update is called once per frame

@@ -33,9 +33,9 @@ Shader "Custom/SoundWave"
         half _Metallic;
         fixed4 _Color;
         fixed4 _WaveOrigin[20];
-        fixed4 _WaveParams[20];
+        fixed4 _WaveParams[20]; //impactStr, sharpness, fade, offset
         float waveColor;
-        float waveSpeed;
+        float radius[20];
         // A shader that is used to create a wave effect.
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
@@ -44,12 +44,15 @@ Shader "Custom/SoundWave"
             for (int i = 0; i < 20; i++) {
                 
                 /**********/
-                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - (_WaveParams[i][0] * _WaveOrigin[i].w);
+                float distance = length( IN.worldPos.xyz - _WaveOrigin[i].xyz ) - radius[i];
                 float lowerDistance = distance - _WaveParams[i][1] * 0.5;
                 float upperDistance = distance + _WaveParams[i][1] * 0.5;
 
                 float wshape = pow(max (0, (1 - (abs(distance)/(_WaveParams[i][1]*0.5)) ) * 3) , 3) * (lowerDistance < 0 && upperDistance > 0 );
-                float wfade = pow((1 - _WaveOrigin[i].w), _WaveParams[i][2]) * _WaveParams[i][3];
+                float wfade = pow(max( (1 - (radius[i]/_WaveParams[i][0])), 0), _WaveParams[i][2]) ;                
+                if (wfade < 0.01f) {
+                    wfade = 0;
+                } 
                 // Albedo comes from a texture tinted by color
                 waveColor += wshape * wfade;
             }

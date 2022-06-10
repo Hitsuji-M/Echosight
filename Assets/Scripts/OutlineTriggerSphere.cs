@@ -5,24 +5,20 @@ using UnityEngine;
 public class OutlineTriggerSphere : MonoBehaviour
 {
     SphereCollider sphereCollider;
-    float maxRadius;
-    float lifespan;
+    public float maxRadius;
     cakeslice.Outline objectOutline;
     // Start is called before the first frame update
     void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
-        //maxRadius = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>().impactStrength;
-        maxRadius = 10;
-        lifespan = 0;
+        sphereCollider.radius = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lifespan += Time.deltaTime;
-        sphereCollider.radius = maxRadius * lifespan;
-        if (lifespan > 1)
+        sphereCollider.radius += Time.deltaTime * WaveShaderExpansion.waveSpeed;
+        if (sphereCollider.radius > maxRadius)
         {
             Destroy(gameObject);
         }
