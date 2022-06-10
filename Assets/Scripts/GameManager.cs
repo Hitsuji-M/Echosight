@@ -33,9 +33,20 @@ public class GameManager : MonoBehaviour
     {
         _playing = !_playing;
         canvas.SetActive(!_playing);
-        Cursor.lockState = _playing ? CursorLockMode.Locked : CursorLockMode.Confined;
-        Time.timeScale = (_playing ? 1 : 0);
+        SetCursorMvmt(_playing);
+        SetTimeScale(_playing);
     }
+
+    public void SetCursorMvmt(bool status)
+    {
+        Cursor.lockState = status ? CursorLockMode.Locked : CursorLockMode.Confined;
+    }
+
+    public void SetTimeScale(bool status)
+    {
+        Time.timeScale = (status ? 1 : 0);
+    }
+
 
     public void PlayAudio(string soundName)
     {
