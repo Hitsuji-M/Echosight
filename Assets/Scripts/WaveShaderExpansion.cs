@@ -44,7 +44,6 @@ public class WaveShaderExpansion : MonoBehaviour
         waveOrigin[waveIndex] = new Vector4(spawnPoint.x, spawnPoint.y, spawnPoint.z, 0);
         waveParams[waveIndex] = new Vector4(waveStrength, waveSharpness, waveFade, waveOffset);
         radius[waveIndex] = 0;
-        waveIndex = (waveIndex + 1) % nbWaves;
         material.SetVectorArray("_WaveParams", waveParams);
 
         /***************Outline Trigger Sphere****************/
@@ -52,6 +51,10 @@ public class WaveShaderExpansion : MonoBehaviour
         outlineTriggerCs = outlineTrigger.GetComponent<OutlineTriggerSphere>();
         outlineTriggerCs.maxRadius = maxRadius;
         Instantiate(outlineTrigger, new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z), Quaternion.identity);
+
+        /*****************Switch to next wave*****************/
+        waveIndex = (waveIndex + 1) % nbWaves;
+
     }
 
     // Update is called once per frame

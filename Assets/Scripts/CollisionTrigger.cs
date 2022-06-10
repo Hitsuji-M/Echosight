@@ -22,7 +22,7 @@ public class CollisionTrigger : MonoBehaviour
     {
         for (int i = 0; i < collision.contactCount; i++)
         {
-            impact = rb.mass * rb.velocity.magnitude ;
+            impact = rb.mass * rb.velocity.magnitude * 50 ;
             controller.Spawn(collision.GetContact(i).point, waveStrength : impact, waveSharpness : soundSharpness);
         }
     }
