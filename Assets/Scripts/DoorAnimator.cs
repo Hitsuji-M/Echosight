@@ -20,14 +20,13 @@ public class DoorAnimator : MonoBehaviour
 
     public void TriggerDoor()
     {
-        _animator.SetTrigger(ButtonPress);
+        if(!_isOpen)_animator.SetTrigger(ButtonPress);
     }
 
     public bool IsOpen => _isOpen;
 
-    public void doorOpen()
+    public void SetDoorOpen()
     {
         this._isOpen = true;
-        Debug.Log("felicitation vous avez fini le niveau à "+Time.time);
     }
 }

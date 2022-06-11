@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using SUPERCharacter;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractWithB : MonoBehaviour
+public class InteractWithB : MonoBehaviour ,IInteractable
 {
     private Camera _camera;
     private DoorAnimator _doorAnimator;
@@ -18,9 +19,9 @@ public class InteractWithB : MonoBehaviour
         _doorAnimator = btnDoor.GetComponent<DoorAnimator>();
     }
 
-    private void OnMouseDown()
+    public bool Interact()
     {
-
         _doorAnimator.TriggerDoor();
+        return true;
     }
 }
