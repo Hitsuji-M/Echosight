@@ -1005,9 +1005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveColor: {r: 1, g: 1, b: 1, a: 0}
-  impactStrength: 20
-  soundSharpness: 1
   material: {fileID: 2100000, guid: d298806b6a1df874bb50a57d26bb95fd, type: 2}
+  waveParams: []
   waveOrigin: []
   outlineTrigger: {fileID: 6722262604372419616, guid: fa225baa3d1b52549822227297888b7f, type: 3}
 --- !u!4 &308342056
@@ -1833,40 +1832,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300004, guid: 2169bb8629cdb1b4a80d043c9c19501a, type: 3}
---- !u!1 &604349078 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100008, guid: dce57d1e50d1fef489ee2d0fe5716701, type: 3}
-  m_PrefabInstance: {fileID: 344034464}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &604349082
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604349078}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300012, guid: 2053965ddb261d94391546f869ad45c6, type: 3}
---- !u!114 &604349083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604349078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OutlinePersistance: 1
-  color: 2
-  eraseRenderer: 0
 --- !u!1 &612340000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866906543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 5}
+  m_LocalPosition: {x: 0, y: 2.5, z: 4.95}
   m_LocalScale: {x: 8, y: 5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5371,40 +5336,6 @@ MonoBehaviour:
   OutlinePersistance: 1
   color: 0
   eraseRenderer: 0
---- !u!1 &1849078016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100014, guid: dce57d1e50d1fef489ee2d0fe5716701, type: 3}
-  m_PrefabInstance: {fileID: 344034464}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1849078020
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849078016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: 2053965ddb261d94391546f869ad45c6, type: 3}
---- !u!114 &1849078021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849078016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OutlinePersistance: 1
-  color: 2
-  eraseRenderer: 0
 --- !u!114 &1886626279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5849,37 +5780,3 @@ Transform:
   m_Father: {fileID: 755409278}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2114748960 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: dce57d1e50d1fef489ee2d0fe5716701, type: 3}
-  m_PrefabInstance: {fileID: 344034464}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &2114748964
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114748960}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: 2053965ddb261d94391546f869ad45c6, type: 3}
---- !u!114 &2114748965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114748960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OutlinePersistance: 1
-  color: 2
-  eraseRenderer: 0
