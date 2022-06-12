@@ -44,7 +44,6 @@ public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     public void OnPointerExit (PointerEventData eventData)
     {
-        Debug.Log("Passage");
         _btnImg.color = Color.black;
         _btnTxt.color = Color.white;
     }

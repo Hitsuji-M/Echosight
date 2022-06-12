@@ -6,11 +6,21 @@ using UnityEngine;
 public class EndMessage : MonoBehaviour
 {
     private bool _triggered;
-    public string text;
+    private GameObject _msg;
+
+    private void Start()
+    {
+        _msg = GameObject.Find("EndMessage");
+        _msg.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_triggered) Debug.Log("felicitation vous avez fini le niveau à " + Time.time);
-        else _triggered = true;
+        if (!_triggered)
+        {
+            _msg.SetActive(true);
+            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes");
+            _triggered = true;
+        }
     }
 }
