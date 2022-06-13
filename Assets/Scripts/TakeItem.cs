@@ -57,6 +57,7 @@ public class TakeItem : MonoBehaviour
     {
         item.GetComponent<Rigidbody>().velocity = Vector3.zero;
         item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.5f, hand.transform.position.z);
+        item.GetComponent<cakeslice.Outline>().OnEnable();
     }
 
     void DropItem(GameObject item)
