@@ -11,7 +11,7 @@ public class WaveShaderExpansion : MonoBehaviour
     public Vector4[] waveOrigin;    // Position of sound wave index i
 
     public GameObject outlineTrigger;
-    public static float waveSpeed = 10;
+    public static float waveSpeed = 6;
     private int waveIndex;
     int nbWaves;
     float[] radius;         // Radius of sound wave index i

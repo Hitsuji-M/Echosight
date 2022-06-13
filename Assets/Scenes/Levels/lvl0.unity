@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!54 &193688201
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!64 &243496864
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!82 &410067602
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!114 &455604133
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 2
   eraseRenderer: 0
 --- !u!4 &468495599 stripped
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!114 &516054611
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!23 &516054612
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!64 &597064308
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!23 &766413609
@@ -2617,7 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!114 &864444098
@@ -2632,7 +2632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1 &866906543
@@ -2927,7 +2927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1 &955748905
@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 1
   eraseRenderer: 0
 --- !u!64 &1030207766
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 2
   eraseRenderer: 0
 --- !u!1 &1127065001
@@ -3851,7 +3851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!54 &1209690325
@@ -4053,7 +4053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!4 &1249586476 stripped
@@ -4677,7 +4677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!23 &1453830736
@@ -4777,7 +4777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1 &1500991248
@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!23 &1553148171
@@ -5170,7 +5170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1 &1663666154 stripped
@@ -5256,7 +5256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!64 &1675011957
@@ -5295,7 +5295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!64 &1682572544
@@ -5478,7 +5478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1001 &1827628520
@@ -5621,7 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!114 &1886626279
@@ -5636,7 +5636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!23 &1886626280
@@ -5717,7 +5717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!1001 &1952750691
@@ -5862,7 +5862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!64 &1954634800
@@ -6065,7 +6065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2144129020
 Light:
   m_ObjectHideFlags: 0
@@ -6135,14 +6135,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144129019}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 1.5099082, y: 2.3185298, z: 1.7763542}
+  m_LocalRotation: {x: -0.40277624, y: 0.36223915, z: -0.22191842, w: -0.8107443}
+  m_LocalPosition: {x: 1.5099082, y: 2.594, z: 1.7763542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 54.476, y: 315.314, z: 6.724}
 --- !u!4 &8007972946638390224
 Transform:
   m_ObjectHideFlags: 0
@@ -6950,7 +6950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 0
   eraseRenderer: 0
 --- !u!114 &8007972946640683330
@@ -6965,7 +6965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlinePersistance: 1
+  OutlinePersistance: 2.5
   color: 2
   eraseRenderer: 0
 --- !u!82 &8007972946640683331
