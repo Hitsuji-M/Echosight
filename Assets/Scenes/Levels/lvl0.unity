@@ -4765,6 +4765,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28847910}
   m_Mesh: {fileID: 4300000, guid: cba8d3ce29e039341aa8be02a7135526, type: 3}
+--- !u!114 &1453830742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28847910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96034e20d2ea06447b7b35c69e12ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveController: {fileID: 308342053}
 --- !u!114 &1476522195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5445,6 +5458,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.b
+      value: 0.23316002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: lineColor2.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: useFillColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: cornerOutlines
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: addLinesBetweenColors
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
 --- !u!1 &1755689561 stripped
@@ -6065,7 +6114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &2144129020
 Light:
   m_ObjectHideFlags: 0
