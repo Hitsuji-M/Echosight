@@ -8,6 +8,8 @@ TagManager:
   - Outlinable
   - final_door
   - Item
+  - audio_menu
+  - Floor
   layers:
   - Default
   - TransparentFX

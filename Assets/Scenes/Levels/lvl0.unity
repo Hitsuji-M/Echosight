@@ -670,7 +670,7 @@ PrefabInstance:
     - target: {fileID: -4683669308469848369, guid: 3fa86d248f5e75e4c898d4aba79b8e74, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a8e914b81bbfcdf4cbc008f52aa136a1, type: 2}
+      objectReference: {fileID: 2100000, guid: d298806b6a1df874bb50a57d26bb95fd, type: 2}
     - target: {fileID: -1461304994638716399, guid: 3fa86d248f5e75e4c898d4aba79b8e74, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2264,7 +2264,7 @@ GameObject:
   - component: {fileID: 794794466}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2278,7 +2278,7 @@ Transform:
   m_GameObject: {fileID: 794794464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01420024, y: 0, z: -0.0659}
-  m_LocalScale: {x: 8.027777, y: 0.1, z: 9.966353}
+  m_LocalScale: {x: 8.027777, y: 0.15813, z: 9.966353}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 104497669}
@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005722381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf8047b0687a0b840b00da6257bc0c49, type: 3}
   m_Name: 
@@ -5147,6 +5147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4259928220985582870, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: stepTiming
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5157,7 +5161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_LocalPosition.z

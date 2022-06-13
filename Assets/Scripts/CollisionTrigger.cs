@@ -28,9 +28,6 @@ public class CollisionTrigger : MonoBehaviour
                                                                     waveSharpness : soundSharpness, 
                                                                     waveFade : impact,
                                                                     waveIntensity : impact * soundSharpness / 10);
-        }
-        
-        Debug.Log(impact);
-    
+        }    
     }
 }
