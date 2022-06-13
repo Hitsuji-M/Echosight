@@ -18,7 +18,7 @@ public class OutlineTriggerSphere : MonoBehaviour
     void Update()
     {
         sphereCollider.radius += Time.deltaTime * WaveShaderExpansion.waveSpeed;
-        if (sphereCollider.radius > maxRadius)
+        if (sphereCollider.radius > maxRadius * 0.5f)
         {
             Destroy(gameObject);
         }

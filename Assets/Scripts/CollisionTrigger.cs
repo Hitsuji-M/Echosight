@@ -21,13 +21,13 @@ public class CollisionTrigger : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        impact = rb.mass * rb.velocity.magnitude * 50;
+        impact = rb.mass * rb.velocity.magnitude * 20;
         for (int i = 0; i < collision.contactCount; i++) 
         {
             controller.Spawn(collision.GetContact(i).point, waveStrength : impact, 
                                                                     waveSharpness : soundSharpness, 
-                                                                    waveFade : impact / 10,
-                                                                    waveIntensity : impact * soundSharpness/500);
+                                                                    waveFade : impact,
+                                                                    waveIntensity : impact * soundSharpness / 10);
         }
         
         Debug.Log(impact);

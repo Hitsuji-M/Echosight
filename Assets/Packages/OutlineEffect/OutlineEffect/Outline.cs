@@ -42,7 +42,6 @@ namespace cakeslice
 		public bool eraseRenderer;
 		bool isOutlined;
 		float outlinePesistanceVar;
-		public Color outlineColor;
 
 		void Start()
 		{

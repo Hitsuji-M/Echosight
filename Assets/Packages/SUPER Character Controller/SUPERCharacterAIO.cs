@@ -290,7 +290,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
     public bool stickRendererToCapsuleBottom = true;
 
     #endregion
-    
+
+    GameObject waveController;
+    WaveShaderExpansion controller;
     [Space(18)]
     public bool enableGroundingDebugging = false, enableMovementDebugging = false, enableMouseAndCameraDebugging = false, enableVaultDebugging = false;
     #endregion
@@ -303,6 +305,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
         initialCameraFOV = playerCamera.fieldOfView;
         headbobCameraPosition = Vector3.up*standingEyeHeight;
         internalEyeHeight = standingEyeHeight;
+        
+        waveController = GameObject.Find("WaveController");
+        controller = waveController.GetComponent<WaveShaderExpansion>();
         if(lockAndHideMouse){
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -418,6 +423,14 @@ public class SUPERCharacterAIO : MonoBehaviour{
         playerAudioSource = GetComponent<AudioSource>();
         #endregion
         
+    }
+
+    void OnCollisionEnter( Collision other )
+    {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            controller.Spawn(transform.position, 5);
+        }
     }
     void Update(){
         if(!controllerPaused){
@@ -1200,13 +1213,13 @@ public class SUPERCharacterAIO : MonoBehaviour{
             if(_2DVelocity.magnitude>(currentGroundSpeed/100)&& !isIdle){
                 if(cameraPerspective == PerspectiveModes._1stPerson){
                     if((enableHeadbob ? headbobCyclePosition : Time.time) > StepCycle && currentGroundInfo.isGettingGroundInfo && !isSliding){
-                        //print("Steped");
+                        controller.Spawn(GameObject.Find("Player").transform.position, 3, waveFade : 3);
                         CallFootstepClip();
                         StepCycle = enableHeadbob ? (headbobCyclePosition+0.5f) : (Time.time+((stepTiming*_2DVelocityMag)*2));
                     }
                 }else{
                     if(Time.time > StepCycle && currentGroundInfo.isGettingGroundInfo && !isSliding){
-                        //print("Steped");
+                        controller.Spawn(GameObject.Find("Player").transform.position, 3, waveFade : 3);
                         CallFootstepClip();
                         StepCycle = (Time.time+((stepTiming*_2DVelocityMag)*2));
                     }
