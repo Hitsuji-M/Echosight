@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acb2371b9f0ce3429e7935fa5efe263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerPaused: 0
   playerCamera: {fileID: 6817638360860843945}
   enableCameraControl: 1
   lockAndHideMouse: 1
@@ -170,13 +169,12 @@ MonoBehaviour:
   crosshairSprite: {fileID: 0}
   cameraPerspective: 0
   automaticallySwitchPerspective: 0
-  perspectiveSwitchingKey_L: 0
+  perspectiveSwitchingKey: 31
   mouseInputInversion: 0
   Sensitivity: 8
   rotationWeight: 4
   verticalRotationRange: 170
-  standingEyeHeight: 0.8
-  crouchingEyeHeight: 0.25
+  eyeHeight: 0.8
   viewInputMethods: 0
   FOVKickAmount: 10
   FOVSensitivityMultiplier: 0.74
@@ -193,9 +191,9 @@ MonoBehaviour:
   sprintingSpeed: 240
   crouchingSpeed: 45
   decelerationSpeed: 240
-  sprintKey_L: 304
-  crouchKey_L: 306
-  slideKey_L: 118
+  sprintKey: 51
+  crouchKey: 55
+  slideKey: 36
   canSprint: 1
   isSprinting: 0
   toggleSprint: 0
@@ -220,7 +218,7 @@ MonoBehaviour:
   holdJump: 0
   jumpEnhancements: 0
   Jumped: 0
-  jumpKey_L: 32
+  jumpKey: 1
   jumpPower: 40
   airControlFactor: 1
   decentMultiplier: 2.5
@@ -284,7 +282,7 @@ MonoBehaviour:
     hasLowHealth: 0
     isStarving: 0
     isDehydrated: 0
-  interactKey_L: 101
+  interactKey: 19
   interactRange: 2.4
   interactableLayer:
     serializedVersion: 2
