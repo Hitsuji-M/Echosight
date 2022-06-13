@@ -42,8 +42,6 @@ public class TakeItem : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 3.0f))
             {
-                Debug.Log("Hit!");
-                Debug.Log(hit.collider.gameObject);
                 if (hit.collider.gameObject.CompareTag("Item"))
                 {
                     isGrabbed = !isGrabbed;

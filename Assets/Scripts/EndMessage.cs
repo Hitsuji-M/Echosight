@@ -16,7 +16,7 @@ public class EndMessage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_triggered)
+        if (!_triggered && other.gameObject.CompareTag("Player"))
         {
             _msg.SetActive(true);
             _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes");

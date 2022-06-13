@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WaterDrop : MonoBehaviour
 {
-    public GameObject waveController;
-    float dropInterval;
+    private GameObject _waveCtrl;
 
     void Start()
     {
-        dropInterval = Random.value * 10;
+        _waveCtrl = GameObject.Find("WaveController");
+        StartCoroutine(SpawnDrop());
     }
-    // Update is called once per frame
-    void Update()
+
+    IEnumerator SpawnDrop()
     {
-        dropInterval -= Time.deltaTime;
-        if (dropInterval < 0)
+        while (true)
         {
-            waveController.GetComponent<WaveShaderExpansion>().Spawn(new Vector3(transform.position.x,transform.position.y,transform.position.z), 5);
-            dropInterval = Random.value * 10;
+            yield return new WaitForSeconds(5);
+            _waveCtrl.GetComponent<WaveShaderExpansion>().Spawn(new Vector3(transform.position.x,transform.position.y+1, transform.position.z), 4);
         }
-        Debug.Log(dropInterval);
+
     }
 }

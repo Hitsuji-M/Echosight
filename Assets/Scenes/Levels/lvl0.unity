@@ -1040,7 +1040,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &366335648
 MonoBehaviour:
@@ -2482,7 +2482,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &794794464
 GameObject:
@@ -2797,7 +2797,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919650294
 GameObject:
@@ -2975,7 +2975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &955748908
 MonoBehaviour:
@@ -4290,7 +4290,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4777,7 +4777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96034e20d2ea06447b7b35c69e12ce14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveController: {fileID: 308342053}
 --- !u!114 &1476522195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5410,13 +5409,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4259928220985582868, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582870, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: stepTiming
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6190,7 +6193,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 54.476, y: 315.314, z: 6.724}
 --- !u!4 &8007972946638390224
 Transform:
