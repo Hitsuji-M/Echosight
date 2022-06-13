@@ -267,7 +267,7 @@ MonoBehaviour:
   viewInputMethods: 0
   FOVKickAmount: 10
   FOVSensitivityMultiplier: 0.74
-  rotateCharaterToCameraForward: 0
+  rotateCharacterToCameraForward: 0
   maxCameraDistance: 8
   cameraObstructionIgnore:
     serializedVersion: 2
@@ -286,7 +286,7 @@ MonoBehaviour:
   canSprint: 0
   isSprinting: 0
   toggleSprint: 0
-  sprintOveride: 0
+  sprintOverride: 0
   canCrouch: 0
   isCrouching: 0
   toggleCrouch: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   isSliding: 0
   canSlide: 0
   slidingDeceleration: 78
-  slidingTransisionSpeed: 4
+  slidingTransitionSpeed: 4
   maxFlatSlideDistance: 10
   currentGroundInfo:
     isInContactWithGround: 0

@@ -19,42 +19,39 @@ public class TakeItem : MonoBehaviour
     // Pick up items on E
     void LateUpdate()
     {
-        if ( Input.GetKeyDown("e") )
+        if (Input.GetMouseButtonDown(0))
         {
             if (isGrabbed)
             {
                 isGrabbed = !isGrabbed;
                 DropItem(itemInHand);
             }
-            else 
+            else
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit) && hit.collider != null && hit.collider.gameObject.CompareTag("Item"))
+                if (Physics.Raycast(ray, out hit, 3.0f))
                 {
-                    if ( Vector3.Distance( hit.point, transform.position ) < 3 )
+                    if (hit.collider.gameObject.CompareTag("Item"))
                     {
                         isGrabbed = !isGrabbed;
                         itemInHand = hit.collider.gameObject;
                     }
                 }
-            }            
+            }
         }
 
-        if (isGrabbed)
-        {
-            FloatingItem(itemInHand);
-        }
+        if (isGrabbed){FloatingItem(itemInHand);}
 
     }
     void FloatingItem(GameObject item)
     {
+        item.GetComponent<Rigidbody>().velocity = Vector3.zero;
         item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.5f, hand.transform.position.z);
     }
 
     void DropItem(GameObject item)
     {
         item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.6f, hand.transform.position.z);
-        item.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
