@@ -20,13 +20,17 @@ public class CollisionTrigger : MonoBehaviour
     // On Collision spawns a wave depending collider attributes
     void OnCollisionEnter(Collision collision)
     {
-        for (int i = 0; i < collision.contactCount; i++)
+
+        impact = rb.mass * rb.velocity.magnitude * 50;
+        for (int i = 0; i < collision.contactCount; i++) 
         {
-            impact = rb.mass * rb.velocity.magnitude * 50 ;
             controller.Spawn(collision.GetContact(i).point, waveStrength : impact, 
-                                                            waveSharpness : soundSharpness, 
-                                                            waveFade : impact/10,
-                                                            waveIntensity : impact*soundSharpness/10);
+                                                                    waveSharpness : soundSharpness, 
+                                                                    waveFade : impact / 10,
+                                                                    waveIntensity : impact * soundSharpness/500);
         }
+        
+        Debug.Log(impact);
+    
     }
 }
