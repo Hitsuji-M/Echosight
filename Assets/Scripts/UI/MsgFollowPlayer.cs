@@ -12,7 +12,9 @@ public class MsgFollowPlayer : MonoBehaviour
         _camera = Camera.main;
     }
 
-    // Update is called once per frame
+    /**
+     * Each frame, rotate the text with camera rotation and place it just in front
+     */
     void Update()
     {
         Transform cmTrsf = _camera.transform;
@@ -20,6 +22,9 @@ public class MsgFollowPlayer : MonoBehaviour
         transform.position = cmTrsf.position + cmTrsf.forward * 0.5f;
     }
 
+    /**
+     * Change the text and align it in the center with a little font size
+     */
     public void SetText(String newText)
     {
         TextMeshPro txtField = GetComponent<TextMeshPro>();

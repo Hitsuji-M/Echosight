@@ -15,7 +15,9 @@ public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private GameManager _gm;
     public int btnType;
 
-    // Start is called before the first frame update
+    /**
+     * Set a listener to the button depending of his type attribute
+     */
     void Start()
     {
         _btn = GetComponent<Button>();
@@ -36,29 +38,44 @@ public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
     
+    /**
+     * Change the button's color when the mouse hover it
+     */
     public void OnPointerEnter (PointerEventData eventData)
     {
         _btnImg.color = Color.white;
         _btnTxt.color = Color.black;
     }
  
+    /**
+     * Change the button's color when the mouse exit it
+     */
     public void OnPointerExit (PointerEventData eventData)
     {
         _btnImg.color = Color.black;
         _btnTxt.color = Color.white;
     }
 
+    /**
+     * Resume the game by updating the UI status
+     */
     private void ResumeGame()
     {
         _gm.UpdateUI();
     }
 
+    /**
+     * Load the scene to reset it
+     */
     private void ResetRoom()
     {
         _gm.UpdateUI();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /**
+     * Go back to the title_screen scene
+     */
     private void QuitRoom()
     {
         _gm.SetCursorMvmt(false);

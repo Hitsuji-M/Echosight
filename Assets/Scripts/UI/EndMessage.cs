@@ -7,13 +7,17 @@ public class EndMessage : MonoBehaviour
 {
     private bool _triggered;
     private GameObject _msg;
-
+    
     private void Start()
     {
         _msg = GameObject.Find("EndMessage");
         _msg.SetActive(false);
     }
 
+    /**
+     * When an object with the tag player enters the trigger
+     * It activates the message object and set his text
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (!_triggered && other.gameObject.CompareTag("Player"))

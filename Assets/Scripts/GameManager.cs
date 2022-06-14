@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * Hide or show the UserInterface to the player and  set the cursor movement to lock or confined
+     */
     public void UpdateUI()
     {
         _playing = !_playing;
@@ -38,17 +41,25 @@ public class GameManager : MonoBehaviour
         SetTimeScale(_playing);
     }
 
+    /**
+     * Set the cursor movement to locked when the UI is shown or locked otherwise
+     */
     public void SetCursorMvmt(bool status)
     {
         Cursor.lockState = status ? CursorLockMode.Locked : CursorLockMode.Confined;
     }
 
+    /**
+     * Set the timeScale to stop or resume the game
+     */
     public void SetTimeScale(bool status)
     {
         Time.timeScale = (status ? 1 : 0);
     }
 
-
+    /**
+     * Play the first audio that welcomes the player
+     */
     public void PlayAudio(string soundName)
     {
         _speakers.PlayOneShot(_senseLabSentences.GetSound(soundName));
