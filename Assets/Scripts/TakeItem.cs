@@ -1,38 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TakeItem : MonoBehaviour
 {
-    GameObject itemInHand;
-    GameObject hand;
-    bool isGrabbed;
+    private GameObject _itemInHand;
+    private GameObject _hand;
+    private bool _isGrabbed;
 
     // Start is called before the first frame update
     void Start()
     {
-        isGrabbed = false;   
-        hand = GameObject.Find("Hand");
+        _isGrabbed = false;   
+        _hand = GameObject.Find("Hand");
     }
 
     // Update is called once per frame
     // Pick up items on E
     void LateUpdate()
     {
-        if (isGrabbed){
+        if (_isGrabbed){
             if (Input.GetMouseButtonDown(0)) 
             {
-                DropItem(itemInHand);
+                DropItem(_itemInHand);
                 return;
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                ThrowItem(itemInHand);
+                ThrowItem(_itemInHand);
                 return;
             }
 
-            FloatingItem(itemInHand);
+            FloatingItem(_itemInHand);
         }
         else 
         {
@@ -44,8 +42,8 @@ public class TakeItem : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Item"))
                 {
-                    isGrabbed = !isGrabbed;
-                    itemInHand = hit.collider.gameObject;
+                    _isGrabbed = !_isGrabbed;
+                    _itemInHand = hit.collider.gameObject;
                 }
             }
         }
@@ -54,22 +52,22 @@ public class TakeItem : MonoBehaviour
     void FloatingItem(GameObject item)
     {
         item.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.5f, hand.transform.position.z);
+        item.transform.position = new Vector3(_hand.transform.position.x, _hand.transform.position.y + 0.5f, _hand.transform.position.z);
         item.GetComponent<cakeslice.Outline>().OnEnable();
     }
 
     void DropItem(GameObject item)
     {
-        item.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + 0.6f, hand.transform.position.z);
-        isGrabbed = !isGrabbed;
-        itemInHand = null;
+        item.transform.position = new Vector3(_hand.transform.position.x, _hand.transform.position.y + 0.6f, _hand.transform.position.z);
+        _isGrabbed = !_isGrabbed;
+        _itemInHand = null;
     }
 
     void ThrowItem(GameObject item)
     {
         item.GetComponent<Rigidbody>().AddForce(Camera.main.ScreenPointToRay(Input.mousePosition).direction * 15 , ForceMode.Impulse);
-        isGrabbed = !isGrabbed;
-        itemInHand = null;
+        _isGrabbed = !_isGrabbed;
+        _itemInHand = null;
 
     }
 }

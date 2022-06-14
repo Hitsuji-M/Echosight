@@ -6,20 +6,20 @@ public class BouncingBall : MonoBehaviour
 {
     public GameObject waveController;
 
-    private WaveShaderExpansion controller;
-    private Rigidbody bouncingBallRb;
+    private WaveShaderExpansion _ctrl;
+    private Rigidbody _bouncingBallRb;
 
     void Start()
     {
-        controller = waveController.GetComponent<WaveShaderExpansion>();
-        bouncingBallRb = GetComponent<Rigidbody>();
+        _ctrl = waveController.GetComponent<WaveShaderExpansion>();
+        _bouncingBallRb = GetComponent<Rigidbody>();
     }
     void OnCollisionEnter(Collision collision)
     {
         for (int i = 0; i < collision.contactCount; i++) 
         {
-            controller.Spawn(collision.GetContact(i).point);
+            _ctrl.Spawn(collision.GetContact(i).point);
         }
-        bouncingBallRb.AddForce(Random.onUnitSphere * 10 + Vector3.up * 2, ForceMode.Impulse);
+        _bouncingBallRb.AddForce(Random.onUnitSphere * 10 + Vector3.up * 2, ForceMode.Impulse);
     }
 }

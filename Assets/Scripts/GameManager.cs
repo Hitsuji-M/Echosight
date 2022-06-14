@@ -7,8 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool _playing;
-    private SUPERCharacterAIO _scc;
-    public GameObject canvas;
+    private GameObject _canvas;
     private AudioRegister _senseLabSentences;
     private AudioSource _speakers;
 
@@ -16,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _playing = true;
-        _scc = GameObject.Find("Player").GetComponent<SUPERCharacterAIO>();
+        _canvas = GameObject.Find("Canvas");
         _speakers = GetComponent<AudioSource>();
         _senseLabSentences = GetComponent<AudioRegister>();
     }
@@ -32,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void UpdateUI()
     {
         _playing = !_playing;
-        canvas.SetActive(!_playing);
+        _canvas.SetActive(!_playing);
         SetCursorMvmt(_playing);
         SetTimeScale(_playing);
     }

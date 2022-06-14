@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class SoundSource : MonoBehaviour
 {
-    public AudioSource soundSource;
-    public AudioClip soundSFX;
-    public GameObject soundWave;
+    private AudioSource _soundSrc;
+    private AudioClip _soundSFX;
+    private GameObject _soundWave;
 
     // Start is called before the first frame update
     void Start()
     {
-        soundSource = GetComponent<AudioSource>();
+        _soundSrc = GetComponent<AudioSource>();
+        _soundSFX = GetComponent<AudioClip>();
     }
 
     // Update is called once per frame
@@ -19,8 +20,8 @@ public class SoundSource : MonoBehaviour
     {
         //Play sound and spawn wave on 'Space'
         if (Input.GetKeyDown(KeyCode.Space)) {
-            soundSource.PlayOneShot(soundSFX, 1);
-            Instantiate(soundWave, transform.position, transform.rotation);
+            _soundSrc.PlayOneShot(_soundSFX, 1);
+            Instantiate(_soundWave, transform.position, transform.rotation);
         }    
     }
 }

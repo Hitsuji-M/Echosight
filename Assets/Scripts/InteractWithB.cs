@@ -8,15 +8,14 @@ using UnityEngine;
 
 public class InteractWithB : MonoBehaviour ,IInteractable
 {
-    private Camera _camera;
+    private GameObject _btnDoor;
     private DoorAnimator _doorAnimator;
-    public GameObject btnDoor;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        _camera = Camera.main;
-        _doorAnimator = btnDoor.GetComponent<DoorAnimator>();
+        _btnDoor = GameObject.FindWithTag("final_door");
+        _doorAnimator = _btnDoor.GetComponent<DoorAnimator>();
     }
 
     public bool Interact()

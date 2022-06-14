@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class PlaySound : MonoBehaviour
 {
     private AudioSource _audioSource;
-    public bool firtsColisionShouldBeHeard;
+    private bool _firtsColisionShouldBeHeard;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class PlaySound : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (firtsColisionShouldBeHeard) _audioSource.Play();
-        else firtsColisionShouldBeHeard = true;
+        if (_firtsColisionShouldBeHeard) _audioSource.Play();
+        else _firtsColisionShouldBeHeard = true;
     }
 }

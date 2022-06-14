@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class OutlineTriggerSphere : MonoBehaviour
 {
-    SphereCollider sphereCollider;
+    SphereCollider _sphereClldr;
     public float maxRadius;
     // Start is called before the first frame update
     void Start()
     {
-        sphereCollider = GetComponent<SphereCollider>();
-        sphereCollider.radius = 0;
+        _sphereClldr = GetComponent<SphereCollider>();
+        _sphereClldr.radius = 0;
     }
 
     // Update is called once per frame
     // Expands the sphere collider until it reaches its max radius
     void Update()
     {
-        sphereCollider.radius += Time.deltaTime * WaveShaderExpansion.waveSpeed;
-        if (sphereCollider.radius > maxRadius * 0.8f)
+        _sphereClldr.radius += Time.deltaTime * WaveShaderExpansion.waveSpeed;
+        if (_sphereClldr.radius > maxRadius * 0.8f)
         {
             Destroy(gameObject);
         }

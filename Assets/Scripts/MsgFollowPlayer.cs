@@ -5,13 +5,11 @@ using UnityEngine;
 public class MsgFollowPlayer : MonoBehaviour
 {
     private Camera _camera;
-    private Vector3 _offset;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
-        _offset = new Vector3(0.0f, 0.5f, 3.0f);
     }
 
     // Update is called once per frame
