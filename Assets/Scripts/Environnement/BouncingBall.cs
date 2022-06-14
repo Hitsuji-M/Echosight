@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BouncingBall : MonoBehaviour
 {
+    // Bouncing ball used to generate waves on collision
     public GameObject waveController;
 
     private WaveShaderExpansion _ctrl;

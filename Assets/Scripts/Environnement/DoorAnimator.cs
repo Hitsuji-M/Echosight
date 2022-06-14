@@ -31,11 +31,13 @@ public class DoorAnimator : MonoBehaviour
 
     public bool IsOpen => _isOpen;
 
+    //Open door on call
     public void SetDoorOpen()
     {
         this._isOpen = true;
     }
 
+    //Spawn wave at door position
     public void SpawnWave()
     {
         _ctrl.Spawn(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), 5);

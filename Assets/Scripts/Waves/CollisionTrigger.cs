@@ -22,8 +22,10 @@ public class CollisionTrigger : MonoBehaviour
         _rotation = transform.rotation;
     }
 
+
     void Update()
     {
+        // If the position is below -5, replace objects at their initial position
         if (transform.position.y < -5)
         {
             transform.position = _pos;

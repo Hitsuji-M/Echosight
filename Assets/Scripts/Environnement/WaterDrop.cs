@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WaterDrop : MonoBehaviour
 {
+    // Spawns waves at regular intervals and play water drop sound (to be implemented)
+
     private GameObject _waveCtrl;
 
     void Start()

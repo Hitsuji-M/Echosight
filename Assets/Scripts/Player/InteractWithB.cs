@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class InteractWithB : MonoBehaviour ,IInteractable
 {
+    // Script on button to trigger the door opening animation
     private GameObject _btnDoor;
     private DoorAnimator _doorAnimator;
 

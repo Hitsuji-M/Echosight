@@ -14,7 +14,9 @@ public class TakeItem : MonoBehaviour
     }
 
     // Update is called once per frame
-    // Pick up items on E
+    // Pick up items on click if nothing in hand
+    // Drop item in hand on click if item in hand
+    // Throw item in hand on right click if item in hand
     void LateUpdate()
     {
         if (_isGrabbed){

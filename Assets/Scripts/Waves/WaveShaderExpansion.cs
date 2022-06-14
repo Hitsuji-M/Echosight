@@ -62,14 +62,11 @@ public class WaveShaderExpansion : MonoBehaviour
     }
 
     // Update is called once per frame
+    // At each frame, increase the radius of the waves, depending on the wave speed (static constant) and the wave max radius
     void Update()
     {
         material.SetInt("nbWave", nbWaves);
         for (int i = 0; i < nbWaves; i++) {
-            waveOrigin[i] = new Vector4(waveOrigin[i].x,
-                                        waveOrigin[i].y,
-                                        waveOrigin[i].z,
-                                        Mathf.Min(waveOrigin[i].w + Time.deltaTime, 1));
             radius[i] = Mathf.Min(radius[i] + Time.deltaTime * waveSpeed, 1.5f * waveParams[i][0]); 
             material.SetVectorArray("_WaveOrigin", waveOrigin);
             material.SetFloatArray("radius", radius);
