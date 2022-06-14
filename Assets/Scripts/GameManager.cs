@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
         _canvas = GameObject.Find("Canvas");
         _speakers = GetComponent<AudioSource>();
         _senseLabSentences = GetComponent<AudioRegister>();
+        
+        _canvas.SetActive(false);
     }
 
     // Update is called once per frame

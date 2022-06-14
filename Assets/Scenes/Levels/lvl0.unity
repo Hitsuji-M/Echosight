@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &66749147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775250583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051, y: 1.244, z: -5.872}
+  m_LocalPosition: {x: 0.051, y: 1.244, z: -6}
   m_LocalScale: {x: 2.5743, y: 2.1069, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2957,7 +2957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441ca872a81ba804ebd0c210d34a5697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 66749146}
 --- !u!4 &955748907
 Transform:
   m_ObjectHideFlags: 0
@@ -3191,7 +3190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8047b0687a0b840b00da6257bc0c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveController: {fileID: 308342053}
 --- !u!1 &1030207763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,7 +3348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652b79b3b529eab4d8e0c0f25538452d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnDoor: {fileID: 1663666154}
 --- !u!1 &1056864427
 GameObject:
   m_ObjectHideFlags: 0
