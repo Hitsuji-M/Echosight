@@ -9,6 +9,7 @@ public class DoorAnimator : MonoBehaviour
     private Animator _animator;
     private bool _isOpen;
     private static readonly int ButtonPress = Animator.StringToHash("ButtonPress");
+    private WaveShaderExpansion _ctrl;
 
     // Start is called before the first frame update
     private void Start()
@@ -16,11 +17,16 @@ public class DoorAnimator : MonoBehaviour
         this._isOpen = false;
         _door = GameObject.FindWithTag("final_door");
         _animator = _door.GetComponent<Animator>();
+        _ctrl = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>();
+
     }
 
     public void TriggerDoor()
     {
-        if(!_isOpen)_animator.SetTrigger(ButtonPress);
+        if(!_isOpen)
+        {
+            _animator.SetTrigger(ButtonPress);
+        }
     }
 
     public bool IsOpen => _isOpen;
@@ -28,5 +34,10 @@ public class DoorAnimator : MonoBehaviour
     public void SetDoorOpen()
     {
         this._isOpen = true;
+    }
+
+    public void SpawnWave()
+    {
+        _ctrl.Spawn(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), 5);
     }
 }
