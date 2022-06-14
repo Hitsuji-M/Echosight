@@ -18,7 +18,6 @@ public class DoorAnimator : MonoBehaviour
         _door = GameObject.FindWithTag("final_door");
         _animator = _door.GetComponent<Animator>();
         _ctrl = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>();
-
     }
 
     public void TriggerDoor()

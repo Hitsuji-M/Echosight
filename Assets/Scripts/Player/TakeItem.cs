@@ -5,12 +5,14 @@ public class TakeItem : MonoBehaviour
     private GameObject _itemInHand;
     private GameObject _hand;
     private bool _isGrabbed;
+    private bool _canGrab;
 
     // Start is called before the first frame update
     void Start()
     {
-        _isGrabbed = false;   
         _hand = GameObject.Find("Hand");
+        _isGrabbed = false;
+        _canGrab = false;
     }
 
     // Update is called once per frame
@@ -19,31 +21,28 @@ public class TakeItem : MonoBehaviour
     // Throw item in hand on right click if item in hand
     void LateUpdate()
     {
-        if (_isGrabbed){
-            if (Input.GetMouseButtonDown(0)) 
-            {
+        if (!_canGrab) return;
+        
+        if (_isGrabbed) {
+            if (Input.GetMouseButtonDown(0)) {
                 DropItem(_itemInHand);
                 return;
             }
 
-            if (Input.GetMouseButtonDown(1))
-            {
+            if (Input.GetMouseButtonDown(1)) {
                 ThrowItem(_itemInHand);
                 return;
             }
-
             FloatingItem(_itemInHand);
         }
-        else 
-        {
+        else {
             if (!Input.GetMouseButtonDown(0)) return;
 
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 3.0f))
-            {
-                if (hit.collider.gameObject.CompareTag("Item"))
-                {
+            
+            if (Physics.Raycast(ray, out hit, 3.0f)) {
+                if (hit.collider.gameObject.CompareTag("Item")) {
                     _isGrabbed = !_isGrabbed;
                     _itemInHand = hit.collider.gameObject;
                 }
@@ -70,6 +69,10 @@ public class TakeItem : MonoBehaviour
         item.GetComponent<Rigidbody>().AddForce(Camera.main.ScreenPointToRay(Input.mousePosition).direction * 15 , ForceMode.Impulse);
         _isGrabbed = !_isGrabbed;
         _itemInHand = null;
+    }
 
+    public void SetGrabStatus(bool status)
+    {
+        _canGrab = status;
     }
 }

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using SUPERCharacter;
 using UnityEditor;
 using UnityEngine;
 
-public class WaterDrop : MonoBehaviour
+public class  WaterDrop : MonoBehaviour
 {
     // Spawns waves at regular intervals and play water drop sound (to be implemented)
-
+  
     private GameObject _waveCtrl;
+
 
     void Start()
     {
@@ -22,6 +24,5 @@ public class WaterDrop : MonoBehaviour
             yield return new WaitForSeconds(5);
             _waveCtrl.GetComponent<WaveShaderExpansion>().Spawn(new Vector3(transform.position.x,transform.position.y+1, transform.position.z), 4);
         }
-
     }
 }
