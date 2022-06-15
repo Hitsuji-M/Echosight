@@ -120,7 +120,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
     public float hardSlopeLimit = 70, slopeInfluenceOnSpeed = 1, maxStairRise = 0.25f, stepUpSpeed=0.2f;
 
     //Jumping
-    public bool canJump=true,holdJump=false, jumpEnhancements=true, Jumped;
+    public bool canJump=true,holdJump=false, jumpEnhancements=true, Jumped, asTakenOff;
     #if ENABLE_INPUT_SYSTEM
         public Key jumpKey = Key.Space;
     #else
@@ -130,6 +130,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
     [Range(0.0f,1.0f)] public float airControlFactor = 1;
     public float decentMultiplier = 2.5f, tapJumpMultiplier = 2.1f;
     float jumpBlankingPeriod;
+    public bool enableJumpSounds = false;
+    public AudioClip takingOffAudioClip;
+    public AudioClip landingAudioClip;
 
     //Sliding
     public bool isSliding, canSlide = true;
@@ -291,14 +294,17 @@ public class SUPERCharacterAIO : MonoBehaviour{
 
     #endregion
 
+    #region EchoSight
+    Rigidbody body;
     GameObject waveController;
     WaveShaderExpansion controller;
+    #endregion
     [Space(18)]
     public bool enableGroundingDebugging = false, enableMovementDebugging = false, enableMouseAndCameraDebugging = false, enableVaultDebugging = false;
     #endregion
-    void Start(){
-   
-        
+    void Start()
+    {
+        body = GetComponent<Rigidbody>();
         
         #region Camera
         maxCameraDistInternal = maxCameraDistance;
@@ -413,6 +419,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         _MaxFriction.staticFriction =1;
         _MaxFriction.frictionCombine = PhysicMaterialCombine.Maximum;
         _MaxFriction.bounceCombine = PhysicMaterialCombine.Average;
+        asTakenOff = !currentGroundInfo.isInContactWithGround;
         #endregion
 
         #region Stamina System
@@ -422,7 +429,6 @@ public class SUPERCharacterAIO : MonoBehaviour{
         #region Footstep
         playerAudioSource = GetComponent<AudioSource>();
         #endregion
-        
     }
 
     void OnCollisionEnter( Collision other )
@@ -558,6 +564,13 @@ public class SUPERCharacterAIO : MonoBehaviour{
         InputDir = cameraPerspective == PerspectiveModes._1stPerson?  Vector3.ClampMagnitude((transform.forward*MovInput.y+transform.right * (viewInputMethods == ViewInputModes.Traditional ? MovInput.x : 0)),1) : Quaternion.AngleAxis(HeadRotDirForInput,Vector3.up) * (Vector3.ClampMagnitude((Vector3.forward*MovInput_Smoothed.y+Vector3.right * MovInput_Smoothed.x),1));
         GroundMovementSpeedUpdate();
         if(canJump && (holdJump? jumpInput_Momentary : jumpInput_FrameOf)){Jump(jumpPower);}
+
+        print(body.velocity);
+        if (IsFalling() && currentGroundInfo.isInContactWithGround && asTakenOff)
+        {
+            CallLandingClip();
+            asTakenOff = false;
+        }
         #endregion
         
         #region Stamina system
@@ -860,12 +873,11 @@ public class SUPERCharacterAIO : MonoBehaviour{
     }
     void Jump(float Force){
         if((currentGroundInfo.isInContactWithGround) && 
-            (currentGroundInfo.groundAngle<hardSlopeLimit) && 
-            ((enableStaminaSystem && jumpingDepletesStamina)? currentStaminaLevel>s_JumpStaminaDepletion*1.2f : true) && 
-            (Time.time>(jumpBlankingPeriod+0.1f)) &&
-            (currentStance == Stances.Standing && !Jumped)){
-
-                Jumped = true;
+           (currentGroundInfo.groundAngle<hardSlopeLimit) && 
+           ((enableStaminaSystem && jumpingDepletesStamina)? currentStaminaLevel>s_JumpStaminaDepletion*1.2f : true) && 
+           (Time.time>(jumpBlankingPeriod+0.1f)) &&
+           (currentStance == Stances.Standing && !Jumped)){
+            Jumped = true;
                 p_Rigidbody.velocity =(Vector3.right * p_Rigidbody.velocity.x) + (Vector3.forward * p_Rigidbody.velocity.z);
                 p_Rigidbody.AddForce(Vector3.up*(Force/10),ForceMode.Impulse);
                 if(enableStaminaSystem && jumpingDepletesStamina){
@@ -873,6 +885,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 }
                 capsule.sharedMaterial  = _ZeroFriction;
                 jumpBlankingPeriod = Time.time;
+                CallTakingOffClip();
+                //TODO asTakenOff is used to play the sound only once but the landing sound should be heard from any landing not only when you jumped
+                asTakenOff = true;
         }
     }
     public void DoJump(float Force = 10.0f){
@@ -889,6 +904,31 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 jumpBlankingPeriod = Time.time;
         }
     }
+    
+    public bool IsFalling()
+    {
+        return body.velocity.y < -0.5f;
+    }
+    
+    public void CallTakingOffClip(){
+        if(playerAudioSource){
+            if(enableJumpSounds && takingOffAudioClip){
+                print("hop !");
+                playerAudioSource.PlayOneShot(takingOffAudioClip);
+            }
+        }
+    }
+    
+    public void CallLandingClip(){
+        if(playerAudioSource){
+            if(enableJumpSounds && landingAudioClip)
+            {
+                print("plock !");
+                playerAudioSource.PlayOneShot(landingAudioClip);
+            }
+        }
+    }
+    
     void Slide(){
         if(!isSliding){
             if(currentGroundInfo.isInContactWithGround){
@@ -1837,6 +1877,13 @@ public class SuperFPEditor : Editor{
                 t.tapJumpMultiplier = EditorGUILayout.Slider(new GUIContent("Tap Jump Multiplier","When the player lets go of space prematurely during a jump, what should gravity be multiplied by?"),t.tapJumpMultiplier, 0.1f,5);
             }
 
+            t.enableJumpSounds = EditorGUILayout.ToggleLeft(new GUIContent("Jump Sound","Should we hear jump sound"),t.enableJumpSounds);
+            GUI.enabled = true;
+            if (t.enableJumpSounds)
+            {
+                t.takingOffAudioClip = (AudioClip)EditorGUILayout.ObjectField("Taking Off sound", t.takingOffAudioClip, typeof(AudioClip), false);
+                t.landingAudioClip = (AudioClip)EditorGUILayout.ObjectField("landing sound", t.landingAudioClip, typeof(AudioClip), false);
+            }
             EditorGUILayout.EndVertical();
             #endregion
 
