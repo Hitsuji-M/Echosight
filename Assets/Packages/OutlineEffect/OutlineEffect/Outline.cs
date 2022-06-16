@@ -93,6 +93,11 @@ namespace cakeslice
 			}
 		}
 
+		public bool GetOutlineStatus()
+		{
+			return isOutlined;
+		}
+
 		private Material[] _SharedMaterials;
 		public Material[] SharedMaterials
 		{
@@ -104,5 +109,7 @@ namespace cakeslice
 				return _SharedMaterials;
 			}
 		}
+
+
 	}
 }
