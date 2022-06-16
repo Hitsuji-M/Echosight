@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private TakeItem _takeItem;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         _playing = true;
         _canvas = GameObject.Find("Canvas");
@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
         _scc = player.GetComponent<SUPERCharacterAIO>();
         _takeItem = player.GetComponent<TakeItem>();
         _canvas.SetActive(false);
-        SetTakeStatus(true);
+        SetPlayerStatus(true);
+        SetTakeStatus(false); 
+        SetInteractionStatus(false);
     }
 
     // Update is called once per frame
@@ -42,6 +44,13 @@ public class GameManager : MonoBehaviour
     {
         _playing = !_playing;
         _canvas.SetActive(!_playing);
+
+        if (!_playing) {
+            _speakers.Pause();
+        } else {
+            _speakers.UnPause();
+        }
+        
         SetCursorMvmt(_playing);
         SetTimeScale(_playing);
     }
@@ -65,27 +74,30 @@ public class GameManager : MonoBehaviour
     /**
      * Play the first audio that welcomes the player
      */
-    public void PlayAudio(string soundName)
+    public AudioClip PlayAudio(string soundName)
     {
-        _speakers.PlayOneShot(_senseLabSentences.GetSound(soundName));
+        AudioClip clip = _senseLabSentences.GetSound(soundName);
+        _speakers.PlayOneShot(clip);
+        return clip;
     }
     
-    public void SetPlayerStatus(bool pause)
+    public void SetPlayerStatus(bool inPause)
     {
-        if (pause) {
+        if (inPause) {
             _scc.PausePlayer(PauseModes.BlockInputOnly);
         } else {
             _scc.UnpausePlayer();
         }
     }
 
-    public void SetTakeStatus(bool status)
+    public void SetTakeStatus(bool canGrab)
     {
-        _takeItem.SetGrabStatus(status);
+        _takeItem.SetGrabStatus(canGrab);
     }
 
-    public void SetInteractionStatus(bool status)
+    public void SetInteractionStatus(bool canInteract)
     {
-        _scc.interactKey_L = (status ? KeyCode.E : KeyCode.None);
+        _scc.interactKey_L = (canInteract ? KeyCode.E : KeyCode.None);
+        print(_scc.interactKey_L);
     }
 }

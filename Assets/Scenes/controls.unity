@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.111244164, g: 0.11208814, b: 0.10494863, a: 1}
+  m_IndirectSpecularColor: {r: NaN, g: NaN, b: NaN, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1089,7 +1089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8047b0687a0b840b00da6257bc0c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveController: {fileID: 1064813743}
 --- !u!4 &665245623
 Transform:
   m_ObjectHideFlags: 0
@@ -1705,11 +1704,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a84ef9783d2e5e45b15ba01b583c376, type: 3}
---- !u!1 &1064813743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2589008864014918432, guid: 0a84ef9783d2e5e45b15ba01b583c376, type: 3}
-  m_PrefabInstance: {fileID: 1064813742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1171395747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,7 +2455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855175298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

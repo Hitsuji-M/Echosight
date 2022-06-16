@@ -7,11 +7,13 @@ public class EndMessage : MonoBehaviour
 {
     private bool _triggered;
     private GameObject _msg;
+    private Events _events;
     
     private void Start()
     {
         _msg = GameObject.Find("EndMessage");
         _msg.SetActive(false);
+        _events = GameObject.Find("GameManager").GetComponent<Events>();
     }
 
     /**
@@ -22,8 +24,9 @@ public class EndMessage : MonoBehaviour
     {
         if (!_triggered && other.gameObject.CompareTag("Player"))
         {
+            _triggered = true;
             _msg.SetActive(true);
-            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.timeSinceLevelLoad + " secondes");
+            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes");
             _triggered = true;
         }
     }

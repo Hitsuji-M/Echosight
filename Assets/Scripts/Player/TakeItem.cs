@@ -4,6 +4,7 @@ public class TakeItem : MonoBehaviour
 {
     private GameObject _itemInHand;
     private GameObject _hand;
+    private Events _events;
     private bool _isGrabbed;
     private bool _canGrab;
     private bool _hasTakenItem;
@@ -12,6 +13,7 @@ public class TakeItem : MonoBehaviour
     void Awake()
     {
         _hand = GameObject.Find("Hand");
+        _events = GameObject.Find("GameManager").GetComponent<Events>();
         _isGrabbed = false;
         _canGrab = false;
     }
@@ -44,11 +46,13 @@ public class TakeItem : MonoBehaviour
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit, 3.0f)) {
+            if (Physics.Raycast(ray, out hit, 2.0f)) {
                 if (hit.collider.gameObject.CompareTag("Item")) {
                     _isGrabbed = !_isGrabbed;
                     _itemInHand = hit.collider.gameObject;
                     gameObject.GetComponent<TipsMessage>().SetStatusTrue("take");
+                    
+                    if (_isGrabbed) {_events.SetTake(_isGrabbed);}
                 }
             }
         }
@@ -66,6 +70,7 @@ public class TakeItem : MonoBehaviour
         item.transform.position = new Vector3(_hand.transform.position.x, _hand.transform.position.y + 0.6f, _hand.transform.position.z);
         _isGrabbed = !_isGrabbed;
         _itemInHand = null;
+        _events.SetDrop(true);
     }
 
     void ThrowItem(GameObject item)
@@ -73,6 +78,7 @@ public class TakeItem : MonoBehaviour
         item.GetComponent<Rigidbody>().AddForce(Camera.main.ScreenPointToRay(Input.mousePosition).direction * 15 , ForceMode.Impulse);
         _isGrabbed = !_isGrabbed;
         _itemInHand = null;
+        _events.SetThrow(true);
         gameObject.GetComponent<TipsMessage>().SetStatusTrue("throw");
     }
 
