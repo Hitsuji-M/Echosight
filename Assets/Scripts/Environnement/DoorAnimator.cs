@@ -10,7 +10,7 @@ public class DoorAnimator : MonoBehaviour
     private bool _isOpen;
     private static readonly int ButtonPress = Animator.StringToHash("ButtonPress");
     private WaveShaderExpansion _ctrl;
-    public AudioSource openEffect;
+    [SerializeField] AudioSource openEffect;
 
     // Start is called before the first frame update
     private void Start()
