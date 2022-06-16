@@ -23,7 +23,7 @@ public class EndMessage : MonoBehaviour
         if (!_triggered && other.gameObject.CompareTag("Player"))
         {
             _msg.SetActive(true);
-            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.timeSinceLevelLoad + " secondes");
+            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes");
             _triggered = true;
         }
     }

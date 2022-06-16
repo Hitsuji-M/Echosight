@@ -565,6 +565,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         GroundMovementSpeedUpdate();
         if(canJump && (holdJump? jumpInput_Momentary : jumpInput_FrameOf)){Jump(jumpPower);}
 
+        print(body.velocity);
         if (IsFalling() && currentGroundInfo.isInContactWithGround && asTakenOff)
         {
             CallLandingClip();
@@ -650,6 +651,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
                         headRot.x = Mathf.Clamp(headRot.x,-0.5f*verticalRotationRange,0.5f*verticalRotationRange);
                         cameraObstCheck= new Ray(headPos+(quatHeadRot*(Vector3.forward*capsule.radius)), quatHeadRot*-Vector3.forward);
                         if(enableMouseAndCameraDebugging){
+                            Debug.Log(headRot);
                             Debug.DrawRay(cameraObstCheck.origin,cameraObstCheck.direction*maxCameraDistance,Color.red);
                             Debug.DrawRay(cameraObstCheck.origin,cameraObstCheck.direction*-currentCameraZ,Color.green);
                         }   
