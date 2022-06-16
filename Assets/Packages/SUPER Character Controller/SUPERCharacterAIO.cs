@@ -298,6 +298,8 @@ public class SUPERCharacterAIO : MonoBehaviour{
     Rigidbody body;
     GameObject waveController;
     WaveShaderExpansion controller;
+    private GameObject _gm;
+    private Events _events;
     #endregion
     [Space(18)]
     public bool enableGroundingDebugging = false, enableMovementDebugging = false, enableMouseAndCameraDebugging = false, enableVaultDebugging = false;
@@ -305,6 +307,8 @@ public class SUPERCharacterAIO : MonoBehaviour{
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        _gm = GameObject.Find("GameManager");
+        _events = _gm.GetComponent<Events>();
         
         #region Camera
         maxCameraDistInternal = maxCameraDistance;
@@ -565,7 +569,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         GroundMovementSpeedUpdate();
         if(canJump && (holdJump? jumpInput_Momentary : jumpInput_FrameOf)){Jump(jumpPower);}
 
-        print(body.velocity);
+        //print(body.velocity);
         if (IsFalling() && currentGroundInfo.isInContactWithGround && asTakenOff)
         {
             CallLandingClip();
@@ -877,7 +881,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
            ((enableStaminaSystem && jumpingDepletesStamina)? currentStaminaLevel>s_JumpStaminaDepletion*1.2f : true) && 
            (Time.time>(jumpBlankingPeriod+0.1f)) &&
            (currentStance == Stances.Standing && !Jumped)){
-            Jumped = true;
+                Jumped = true;
+                _events.SetJump(Jumped);
+                
                 p_Rigidbody.velocity =(Vector3.right * p_Rigidbody.velocity.x) + (Vector3.forward * p_Rigidbody.velocity.z);
                 p_Rigidbody.AddForce(Vector3.up*(Force/10),ForceMode.Impulse);
                 if(enableStaminaSystem && jumpingDepletesStamina){
@@ -1254,12 +1260,14 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 if(cameraPerspective == PerspectiveModes._1stPerson){
                     if((enableHeadbob ? headbobCyclePosition : Time.time) > StepCycle && currentGroundInfo.isGettingGroundInfo && !isSliding){
                         controller.Spawn(GameObject.Find("Player").transform.position, 3, waveFade : 3);
+                        _events.AddFootStep();
                         CallFootstepClip();
                         StepCycle = enableHeadbob ? (headbobCyclePosition+0.5f) : (Time.time+((stepTiming*_2DVelocityMag)*2));
                     }
                 }else{
                     if(Time.time > StepCycle && currentGroundInfo.isGettingGroundInfo && !isSliding){
                         controller.Spawn(GameObject.Find("Player").transform.position, 3, waveFade : 3);
+                        _events.AddFootStep();
                         CallFootstepClip();
                         StepCycle = (Time.time+((stepTiming*_2DVelocityMag)*2));
                     }
