@@ -40,7 +40,9 @@ public class DoorAnimator : MonoBehaviour
     //Spawn wave at door position
     public void SpawnWave()
     {
-        _ctrl.Spawn(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), 5);
+        _ctrl.Spawn(new Vector3(transform.position.x + 1, transform.position.y - 2, transform.position.z), 5);
+        _ctrl.Spawn(new Vector3(transform.position.x - 1, transform.position.y - 2, transform.position.z), 5);
+
     }
 
     public void OpenSound()
