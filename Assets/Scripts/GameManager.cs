@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         _scc = player.GetComponent<SUPERCharacterAIO>();
         _takeItem = player.GetComponent<TakeItem>();
-        
         _canvas.SetActive(false);
         SetTakeStatus(true);
     }

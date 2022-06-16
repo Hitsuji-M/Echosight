@@ -8,7 +8,7 @@ public class TakeItem : MonoBehaviour
     private bool _canGrab;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _hand = GameObject.Find("Hand");
         _isGrabbed = false;
@@ -21,7 +21,10 @@ public class TakeItem : MonoBehaviour
     // Throw item in hand on right click if item in hand
     void LateUpdate()
     {
-        if (!_canGrab) return;
+        if (!_canGrab) {
+            return;
+        }
+        
         
         if (_isGrabbed) {
             if (Input.GetMouseButtonDown(0)) {
@@ -37,7 +40,6 @@ public class TakeItem : MonoBehaviour
         }
         else {
             if (!Input.GetMouseButtonDown(0)) return;
-
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
