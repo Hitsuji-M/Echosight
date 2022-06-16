@@ -911,7 +911,6 @@ public class SUPERCharacterAIO : MonoBehaviour{
     public void CallTakingOffClip(){
         if(playerAudioSource){
             if(enableJumpSounds && takingOffAudioClip){
-                print("hop !");
                 playerAudioSource.PlayOneShot(takingOffAudioClip);
             }
         }
@@ -921,7 +920,6 @@ public class SUPERCharacterAIO : MonoBehaviour{
         if(playerAudioSource){
             if(enableJumpSounds && landingAudioClip)
             {
-                print("plock !");
                 playerAudioSource.PlayOneShot(landingAudioClip);
             }
         }
