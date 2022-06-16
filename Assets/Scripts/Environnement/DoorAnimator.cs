@@ -10,6 +10,7 @@ public class DoorAnimator : MonoBehaviour
     private bool _isOpen;
     private static readonly int ButtonPress = Animator.StringToHash("ButtonPress");
     private WaveShaderExpansion _ctrl;
+    public AudioSource openEffect;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,5 +41,13 @@ public class DoorAnimator : MonoBehaviour
     public void SpawnWave()
     {
         _ctrl.Spawn(new Vector3(transform.position.x, transform.position.y - 2, transform.position.z), 5);
+    }
+
+    public void OpenSound()
+    {
+        if (_isOpen)
+        {
+            openEffect.Play();
+        }
     }
 }
