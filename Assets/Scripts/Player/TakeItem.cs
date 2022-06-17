@@ -8,7 +8,6 @@ public class TakeItem : MonoBehaviour
     private Events _events;
     private bool _isGrabbed;
     private bool _canGrab;
-    private bool _hasTakenItem;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,10 +28,7 @@ public class TakeItem : MonoBehaviour
     // Throw item in hand on right click if item in hand
     void LateUpdate()
     {
-        if (!_canGrab) {
-            return;
-        }
-        
+        if (!_canGrab) return;
         
         if (_isGrabbed) {
             if (Input.GetMouseButtonDown(0)) {

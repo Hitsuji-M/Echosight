@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TipsMessage : MonoBehaviour
 {
-
     public float messagePersistance;
     private GameObject _msg;
     private float timeLeft;
@@ -12,25 +10,22 @@ public class TipsMessage : MonoBehaviour
     private bool _hasTakenItem;
     private bool _hasInteracted;
     private bool _hasThrown;
-    private TMPro.TextMeshPro textmesh;
-
-
-
+    private TextMeshPro textmesh;
 
     void Start()
     {
         _msg = GameObject.Find("TipsMessage");
         _msg.SetActive(false);
-        textmesh = _msg.GetComponent<TMPro.TextMeshPro>();
-        textmesh.alignment = TMPro.TextAlignmentOptions.Bottom;
+        textmesh = _msg.GetComponent<TextMeshPro>();
+        textmesh.alignment = TextAlignmentOptions.Bottom;
         textmesh.fontSize = 0.3f;        
         timeLeft = 0;
         _hasInteracted = false;
         _hasMoved = false;
         _hasTakenItem = false;
         _hasThrown = false;
-
     }
+    
     // Update is called once per frame
     void LateUpdate()
     {
@@ -88,7 +83,7 @@ public class TipsMessage : MonoBehaviour
             {
                 _msg.SetActive(false);
             }
-            else 
+            else
             {
                 _msg.SetActive(true);
             }

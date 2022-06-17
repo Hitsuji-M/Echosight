@@ -15,7 +15,7 @@ public class DoorAnimator : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        this._isOpen = false;
+        _isOpen = false;
         _door = GameObject.FindWithTag("final_door");
         _animator = _door.GetComponent<Animator>();
         _ctrl = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>();
