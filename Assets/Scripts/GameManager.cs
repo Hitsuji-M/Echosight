@@ -1,28 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using SUPERCharacter;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool _playing;
     private GameObject _canvas;
     private GameObject _btn;
     private AudioRegister _senseLabSentences;
     private AudioSource _speakers;
     private SUPERCharacterAIO _scc;
     private TakeItem _takeItem;
+    private bool _playing;
+    private bool _playText;
 
     // Start is called before the first frame update
     void Awake()
     {
-        _playing = true;
         _canvas = GameObject.Find("Canvas");
         _btn = GameObject.Find("Btn");
         _speakers = GetComponent<AudioSource>();
         _senseLabSentences = GetComponent<AudioRegister>();
+        _playing = true;
+    }
+
+    private void OnEnable()
+    {
+        _playText = PlayerPrefs.GetInt("play_text") >= 1;
     }
 
     private void Start()
@@ -31,9 +33,16 @@ public class GameManager : MonoBehaviour
         _scc = player.GetComponent<SUPERCharacterAIO>();
         _takeItem = player.GetComponent<TakeItem>();
         _canvas.SetActive(false);
-        SetPlayerStatus(true);
-        SetTakeStatus(false);
-        SetBtnStatus(false);
+
+        SetPlayerStatus(_playText);
+        SetTakeStatus(!_playText);
+        SetBtnStatus(!_playText);
+
+        if (!_playText) {
+            GetComponent<Events>().SetStatusSound(5);
+            player.GetComponent<TipsMessage>().SkipHelp();
+        }
+        
     }
 
     // Update is called once per frame
@@ -106,10 +115,4 @@ public class GameManager : MonoBehaviour
     {
         _btn.SetActive(isActive);
     }
-
-    public void ShowMessage(int statusGame)
-    {
-        
-    }
-    
 }

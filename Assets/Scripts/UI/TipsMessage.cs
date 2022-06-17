@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -9,8 +10,8 @@ public class TipsMessage : MonoBehaviour
     private TakeItem _takeItem;
     private MsgFollowPlayer _follower;
     private Camera _camera;
-    private GameObject rayGm;
-    private cakeslice.Outline outline;
+    private GameObject _rayGm;
+    private cakeslice.Outline _outline;
 
     private string _text;
     private Color _color;
@@ -21,11 +22,9 @@ public class TipsMessage : MonoBehaviour
     private bool _hasInteracted;
     private bool _hasThrown;
 
-    void Start()
+    void Awake()
     {
         _msg = GameObject.Find("TipsMessage");
-        _takeItem = GameObject.Find("Player").GetComponent<TakeItem>();
-        _follower = _msg.GetComponent<MsgFollowPlayer>();
         _camera = Camera.main;
 
         _timeLeft = 0.0f;
@@ -33,6 +32,12 @@ public class TipsMessage : MonoBehaviour
         _hasMoved = false;
         _hasTakenItem = false;
         _hasThrown = false;
+    }
+
+    private void Start()
+    {
+        _takeItem = GameObject.Find("Player").GetComponent<TakeItem>();
+        _follower = _msg.GetComponent<MsgFollowPlayer>();
     }
 
     // Update is called once per frame
@@ -43,15 +48,15 @@ public class TipsMessage : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, 2.0f))
         {
-            rayGm = hit.collider.gameObject;
+            _rayGm = hit.collider.gameObject;
             
             if (_hasMoved && (!_hasTakenItem || !_hasThrown))
             {
-                outline = rayGm.GetComponent<cakeslice.Outline>();
+                _outline = _rayGm.GetComponent<cakeslice.Outline>();
 
-                if (outline != null &&
-                    outline.GetOutlineStatus() &&
-                    rayGm.CompareTag("Item"))
+                if (_outline != null &&
+                    _outline.GetOutlineStatus() &&
+                    _rayGm.CompareTag("Item"))
                 {
                     _follower.SetText(
                         "\n\n\n\n\n\n Clic gauche pour prendre un objet",
@@ -76,7 +81,7 @@ public class TipsMessage : MonoBehaviour
                 }
             }
             else if (!_hasInteracted) {
-                if (rayGm.name == "Btn")
+                if (_rayGm.name == "Btn")
                 {
                     _follower.SetText(
                         "\n\n\n\n\n\n E pour interagir",
@@ -108,5 +113,13 @@ public class TipsMessage : MonoBehaviour
 
         _timeLeft = messagePersistance * 4;
         _hasMoved = true;
+    }
+
+    public void SkipHelp()
+    {
+        _hasMoved = true;
+        _hasTakenItem = true;
+        _hasInteracted = true;
+        _hasThrown = true;
     }
 }

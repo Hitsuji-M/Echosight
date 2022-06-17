@@ -140,4 +140,9 @@ public class Events : MonoBehaviour
     {
         _hasWon = status;
     }
+
+    public void SetStatusSound(int status)
+    {
+        _statusSound = status;
+    }
 }

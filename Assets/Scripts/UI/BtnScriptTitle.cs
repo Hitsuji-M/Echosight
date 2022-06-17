@@ -62,6 +62,10 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private void StartGame()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("audio_menu")) {Destroy(obj);}
+        
+        bool playText = GameObject.Find("Pass").GetComponent<Toggle>().isOn;
+        PlayerPrefs.SetInt("play_text", playText ? 1 : 0);
+
         SceneManager.LoadScene("Scenes/Levels/lvl0");
     }
 
