@@ -46,9 +46,8 @@ public class TipsMessage : MonoBehaviour
                 {
                     textmesh.color = new Color (0.5f, 0.5f, 0.5f, 1);
                     textmesh.text = "\n\n\n\n\n\n Z,Q,S,D pour se déplacer\nEspace pour sauter";
-                    timeLeft = messagePersistance * 2;
+                    timeLeft = messagePersistance * 4;
                     SetStatusTrue("move");
-                    _msg.SetActive(true);
                 }
 
                 else if (!_hasTakenItem || !_hasThrown)
@@ -59,7 +58,6 @@ public class TipsMessage : MonoBehaviour
                         textmesh.color = new Color (0.5f, 0, 0, 1);
                         textmesh.text = "\n\n\n\n\n\n Clic gauche pour prendre un objet";
                         timeLeft = messagePersistance;
-                        _msg.SetActive(true);
 
                         if ( GameObject.Find("Player").GetComponent<TakeItem>().HasItemInHand() && !_hasThrown)
                         {
@@ -77,7 +75,6 @@ public class TipsMessage : MonoBehaviour
                     {
                         textmesh.color = new Color (0, 0.5f, 0, 1);
                         textmesh.text = "\n\n\n\n\n\n E pour interagir";
-                        _msg.SetActive(true);
                         timeLeft = messagePersistance;                
                     }
                 }
@@ -90,6 +87,10 @@ public class TipsMessage : MonoBehaviour
             if (timeLeft < 0)
             {
                 _msg.SetActive(false);
+            }
+            else 
+            {
+                _msg.SetActive(true);
             }
         }
         
