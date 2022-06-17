@@ -12,6 +12,7 @@ public class TipsMessage : MonoBehaviour
     private bool _hasTakenItem;
     private bool _hasInteracted;
     private bool _hasThrown;
+    private TMPro.TextMeshPro textmesh;
 
 
 
@@ -20,6 +21,9 @@ public class TipsMessage : MonoBehaviour
     {
         _msg = GameObject.Find("TipsMessage");
         _msg.SetActive(false);
+        textmesh = _msg.GetComponent<TMPro.TextMeshPro>();
+        textmesh.alignment = TMPro.TextAlignmentOptions.Bottom;
+        textmesh.fontSize = 0.3f;        
         timeLeft = 0;
         _hasInteracted = false;
         _hasMoved = false;
@@ -40,11 +44,11 @@ public class TipsMessage : MonoBehaviour
             {
                 if (!_hasMoved)
                 {
-                    _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0.5f, 0.5f, 1);
-                    _msg.SetActive(true);
-                    _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Z,Q,S,D pour se déplacer\nEspace pour sauter");
+                    textmesh.color = new Color (0.5f, 0.5f, 0.5f, 1);
+                    textmesh.text = "\n\n\n\n\n\n Z,Q,S,D pour se déplacer\nEspace pour sauter";
                     timeLeft = messagePersistance * 2;
                     SetStatusTrue("move");
+                    _msg.SetActive(true);
                 }
 
                 else if (!_hasTakenItem || !_hasThrown)
@@ -52,15 +56,15 @@ public class TipsMessage : MonoBehaviour
                     if (hit.collider.gameObject.GetComponent<cakeslice.Outline>().GetOutlineStatus() &&  
                         hit.collider.gameObject.CompareTag("Item") )
                     {
-                        _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0, 0, 1);
-                        _msg.SetActive(true);
-                        _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Clic gauche pour prendre un objet");
+                        textmesh.color = new Color (0.5f, 0, 0, 1);
+                        textmesh.text = "\n\n\n\n\n\n Clic gauche pour prendre un objet";
                         timeLeft = messagePersistance;
+                        _msg.SetActive(true);
 
                         if ( GameObject.Find("Player").GetComponent<TakeItem>().HasItemInHand() && !_hasThrown)
                         {
-                            _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0.5f, 0, 1);
-                            _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Clic droit pour lancer un objet");
+                            textmesh.color = new Color (0.5f, 0.5f, 0, 1);
+                            textmesh.text = "\n\n\n\n\n\n Clic droit pour lancer un objet";
                             timeLeft = messagePersistance;
 
                         }
@@ -71,9 +75,9 @@ public class TipsMessage : MonoBehaviour
                 {
                     if (hit.collider.gameObject.TryGetComponent( typeof(InteractWithB), out Component component) )
                     {
-                        _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0, 0.5f, 0, 1);
+                        textmesh.color = new Color (0, 0.5f, 0, 1);
+                        textmesh.text = "\n\n\n\n\n\n E pour interagir";
                         _msg.SetActive(true);
-                        _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n E pour interagir");
                         timeLeft = messagePersistance;                
                     }
                 }
