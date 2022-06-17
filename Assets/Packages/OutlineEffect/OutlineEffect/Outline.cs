@@ -87,7 +87,7 @@ namespace cakeslice
 		{
 			outlinePesistanceVar = Mathf.Max(0, outlinePesistanceVar - Time.deltaTime);
 
-			if (outlinePesistanceVar == 0) 
+			if (outlinePesistanceVar == 0 && isOutlined) 
 			{
 				OnDisable();
 			}

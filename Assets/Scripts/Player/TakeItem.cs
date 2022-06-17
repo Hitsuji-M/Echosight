@@ -6,6 +6,7 @@ public class TakeItem : MonoBehaviour
     private GameObject _hand;
     private bool _isGrabbed;
     private bool _canGrab;
+    private bool _hasTakenItem;
 
     // Start is called before the first frame update
     void Awake()
@@ -47,6 +48,7 @@ public class TakeItem : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Item")) {
                     _isGrabbed = !_isGrabbed;
                     _itemInHand = hit.collider.gameObject;
+                    gameObject.GetComponent<TipsMessage>().SetStatusTrue("take");
                 }
             }
         }
@@ -77,4 +79,5 @@ public class TakeItem : MonoBehaviour
     {
         _canGrab = status;
     }
+
 }
