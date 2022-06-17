@@ -42,7 +42,7 @@ public class TipsMessage : MonoBehaviour
                 {
                     _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0.5f, 0.5f, 1);
                     _msg.SetActive(true);
-                    _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Z,Q,S,D pour se déplacer");
+                    _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Z,Q,S,D pour se déplacer\nEspace pour sauter");
                     timeLeft = messagePersistance * 2;
                     SetStatusTrue("move");
                 }
