@@ -12,10 +12,7 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private TextMeshProUGUI _btnTxt;
     private Image _btnImg;
     public int btnType;
-
-    /**
-     * Set a listener to the button depending of his type attribute
-     */
+    
     void Start()
     {
         _btn = GetComponent<Button>();
@@ -37,28 +34,19 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 break;
         }
     }
-
-    /**
-     * Change the button's color when the mouse hover it
-     */
+    
     public void OnPointerEnter (PointerEventData eventData)
     {
         _btnImg.color = Color.white;
         _btnTxt.color = Color.black;
     }
- 
-    /**
-     * Change the button's color when the mouse exit it
-     */
+    
     public void OnPointerExit (PointerEventData eventData)
     {
         _btnImg.color = Color.black;
         _btnTxt.color = Color.white;
     }
     
-    /**
-     * Stops the playing music then load the scene of the tutorial
-     */
     private void StartGame()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("audio_menu")) {Destroy(obj);}
@@ -68,26 +56,17 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         SceneManager.LoadScene("Scenes/Levels/lvl0");
     }
-
-    /**
-     * Stop the game
-     */
+    
     private void QuitGame()
     {
         Application.Quit();
     }
-
-    /**
-     * Load the controls scene
-     */
+    
     private void ShowControls()
     {
         SceneManager.LoadScene("Scenes/controls");
     }
-
-    /**
-     * Load the credits scene 
-     */
+    
     private void ShowCreds()
     {
         SceneManager.LoadScene("Scenes/creds");

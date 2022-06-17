@@ -74,6 +74,11 @@ public class Events : MonoBehaviour
             case 4:
                 if (_hasWon) LaunchAudio("4_fin");
                 break;
+            
+            case 6:
+                GameObject.Find("Player").GetComponent<TipsMessage>()?.ShowMoveTip(1);
+                _statusSound++;
+                break;
         }
     }
 

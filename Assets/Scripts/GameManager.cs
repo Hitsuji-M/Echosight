@@ -39,8 +39,7 @@ public class GameManager : MonoBehaviour
         SetBtnStatus(!_playText);
 
         if (!_playText) {
-            GetComponent<Events>().SetStatusSound(5);
-            player.GetComponent<TipsMessage>().SkipHelp();
+            GetComponent<Events>().SetStatusSound(6);
         }
         
     }

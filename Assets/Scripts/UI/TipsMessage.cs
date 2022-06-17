@@ -103,7 +103,7 @@ public class TipsMessage : MonoBehaviour
         }
     }
 
-    public void ShowMoveTip()
+    public void ShowMoveTip(int coeff = 4)
     {
         _follower.SetText(
             "\n\n\n\n\n\n Z,Q,S,D pour se déplacer\nEspace pour sauter",
@@ -113,13 +113,5 @@ public class TipsMessage : MonoBehaviour
 
         _timeLeft = messagePersistance * 4;
         _hasMoved = true;
-    }
-
-    public void SkipHelp()
-    {
-        _hasMoved = true;
-        _hasTakenItem = true;
-        _hasInteracted = true;
-        _hasThrown = true;
     }
 }
