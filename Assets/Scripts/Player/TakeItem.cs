@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TakeItem : MonoBehaviour
@@ -13,9 +14,13 @@ public class TakeItem : MonoBehaviour
     void Awake()
     {
         _hand = GameObject.Find("Hand");
-        _events = GameObject.Find("GameManager").GetComponent<Events>();
         _isGrabbed = false;
         _canGrab = false;
+    }
+
+    private void Start()
+    {
+        _events = GameObject.Find("GameManager").GetComponent<Events>();
     }
 
     // Update is called once per frame

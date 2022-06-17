@@ -19,7 +19,7 @@ public class WaveShaderExpansion : MonoBehaviour
     // Set empty arrays for origins and params
     // 
     // TODO convert wave to Class
-    void Start(){
+    void Awake(){
         waveOrigin = new Vector4[20];
         waveParams = new Vector4[20];
         radius = new float[20];

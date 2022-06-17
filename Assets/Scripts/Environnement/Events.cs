@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SUPERCharacter;
@@ -22,12 +23,16 @@ public class Events : MonoBehaviour
     private bool _check;
     private int _statusSound;
 
+    private void Awake()
+    {
+        _statusSound = 0;
+        _check = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _gm = GetComponent<GameManager>();
-        _statusSound = 0;
-        _check = true;
     }
 
     // Update is called once per frame
@@ -100,7 +105,7 @@ public class Events : MonoBehaviour
                 break;
             
             case 4:
-                _gm.SetInteractionStatus(true);
+                _gm.SetBtnStatus(true);
                 break;
         }
     }
