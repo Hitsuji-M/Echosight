@@ -11,7 +11,6 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Button _btn;
     private TextMeshProUGUI _btnTxt;
     private Image _btnImg;
-    private GameObject _am;
     public int btnType;
 
     /**
@@ -22,7 +21,6 @@ public class BtnScriptTitle : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _btn = GetComponent<Button>();
         _btnTxt = GetComponentInChildren<TextMeshProUGUI>();
         _btnImg = GetComponent<Image>();
-        _am = GameObject.Find("AudioManager");
         switch (btnType)
         {
             case 0:

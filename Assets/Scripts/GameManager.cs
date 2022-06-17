@@ -1,33 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SUPERCharacter;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private bool _playing;
     private GameObject _canvas;
+    private GameObject _btn;
     private AudioRegister _senseLabSentences;
     private AudioSource _speakers;
     private SUPERCharacterAIO _scc;
     private TakeItem _takeItem;
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Awake()
     {
         _playing = true;
         _canvas = GameObject.Find("Canvas");
+        _btn = GameObject.Find("Btn");
         _speakers = GetComponent<AudioSource>();
         _senseLabSentences = GetComponent<AudioRegister>();
-        
+    }
+
+    private void Start()
+    {
         GameObject player = GameObject.Find("Player");
         _scc = player.GetComponent<SUPERCharacterAIO>();
         _takeItem = player.GetComponent<TakeItem>();
         
         _canvas.SetActive(false);
         SetPlayerStatus(true);
-        SetTakeStatus(false); 
-        SetInteractionStatus(false);
+        SetTakeStatus(false);
+        SetBtnStatus(false);
     }
 
     // Update is called once per frame
@@ -96,9 +103,8 @@ public class GameManager : MonoBehaviour
         _takeItem.SetGrabStatus(canGrab);
     }
 
-    public void SetInteractionStatus(bool canInteract)
+    public void SetBtnStatus(bool isActive)
     {
-        _scc.interactKey_L = (canInteract ? KeyCode.E : KeyCode.None);
-        print(_scc.interactKey_L);
+        _btn.SetActive(isActive);
     }
 }

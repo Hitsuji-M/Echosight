@@ -4943,7 +4943,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5631,6 +5631,18 @@ PrefabInstance:
       propertyPath: interactRange
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4259928220985582870, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: enableJumpSounds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259928220985582870, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: landingAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e5146cc90e096d4d9444f32bad6ad7e, type: 3}
+    - target: {fileID: 4259928220985582870, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
+      propertyPath: takingOffAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ae4fd35ed290e041a6a764e1de3da73, type: 3}
     - target: {fileID: 4259928220985582871, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: m_RootOrder
       value: 2

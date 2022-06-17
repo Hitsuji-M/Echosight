@@ -1,10 +1,12 @@
 //Original Code Author: Aedan Graves
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -304,12 +306,10 @@ public class SUPERCharacterAIO : MonoBehaviour{
     [Space(18)]
     public bool enableGroundingDebugging = false, enableMovementDebugging = false, enableMouseAndCameraDebugging = false, enableVaultDebugging = false;
     #endregion
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody>();
-        _gm = GameObject.Find("GameManager");
-        _events = _gm.GetComponent<Events>();
-        
+
         #region Camera
         maxCameraDistInternal = maxCameraDistance;
         initialCameraFOV = playerCamera.fieldOfView;
@@ -433,6 +433,12 @@ public class SUPERCharacterAIO : MonoBehaviour{
         #region Footstep
         playerAudioSource = GetComponent<AudioSource>();
         #endregion
+    }
+
+    private void Start()
+    {
+        _gm = GameObject.Find("GameManager");
+        _events = _gm.GetComponent<Events>();
     }
 
     void OnCollisionEnter( Collision other )
@@ -1583,6 +1589,9 @@ public class SUPERCharacterAIO : MonoBehaviour{
 
             }break;
         }
+
+        //if (p_Rigidbody == null) p_Rigidbody = GetComponent<Rigidbody>();
+        //if (capsule == null) capsule = GetComponent<CapsuleCollider>();
        
         p_Rigidbody.velocity = Vector3.zero;
         InputDir = Vector2.zero;
