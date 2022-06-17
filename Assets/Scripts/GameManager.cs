@@ -106,4 +106,10 @@ public class GameManager : MonoBehaviour
     {
         _btn.SetActive(isActive);
     }
+
+    public void ShowMessage(int statusGame)
+    {
+        
+    }
+    
 }

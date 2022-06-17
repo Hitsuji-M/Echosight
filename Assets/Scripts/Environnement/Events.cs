@@ -60,6 +60,7 @@ public class Events : MonoBehaviour
 
             case 1:
                 LaunchAudio("1_intro");
+                GameObject.Find("Player").GetComponent<TipsMessage>()?.ShowMoveTip();
                 break;
 
             case 2:

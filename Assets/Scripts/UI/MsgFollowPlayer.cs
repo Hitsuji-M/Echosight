@@ -25,11 +25,12 @@ public class MsgFollowPlayer : MonoBehaviour
     /**
      * Change the text and align it in the center with a little font size
      */
-    public void SetText(String newText, float fontSize)
+    public void SetText(String newText, float fontSize, Color newColor, TextAlignmentOptions newAlign = TextAlignmentOptions.Center)
     {
         TextMeshPro txtField = GetComponent<TextMeshPro>();
         txtField.text = newText;
-        txtField.alignment = TextAlignmentOptions.Center;
+        txtField.alignment = newAlign;
         txtField.fontSize = fontSize;
+        txtField.color = newColor;
     }
 }

@@ -51,8 +51,7 @@ public class TakeItem : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Item")) {
                     _isGrabbed = !_isGrabbed;
                     _itemInHand = hit.collider.gameObject;
-                    gameObject.GetComponent<TipsMessage>().SetStatusTrue("take");
-                    
+
                     if (_isGrabbed) {_events.SetTake(_isGrabbed);}
                 }
             }
@@ -80,7 +79,6 @@ public class TakeItem : MonoBehaviour
         _isGrabbed = !_isGrabbed;
         _itemInHand = null;
         _events.SetThrow(true);
-        gameObject.GetComponent<TipsMessage>().SetStatusTrue("throw");
     }
 
     public void SetGrabStatus(bool status)

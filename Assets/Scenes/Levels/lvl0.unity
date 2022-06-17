@@ -3175,13 +3175,13 @@ MonoBehaviour:
   - sound: intro_echosight
     audioClip: {fileID: 8300000, guid: 4839c1f18e8c67546823dfa974aecdfe, type: 3}
   - sound: 1_intro
-    audioClip: {fileID: 8300000, guid: 29e5b73e6a0335b41b1f082676b6041b, type: 3}
+    audioClip: {fileID: 8300000, guid: 50e93b3b59d39114da3708907f212d14, type: 3}
   - sound: 2_some_steps
-    audioClip: {fileID: 8300000, guid: cdd61f9f4b2aa6f418e755f697dff65c, type: 3}
+    audioClip: {fileID: 8300000, guid: 498e05ba6402fb44da9e92306d1e8e6c, type: 3}
   - sound: 3_lance_objet
-    audioClip: {fileID: 8300000, guid: 673d34e9ab16c134c9123beb20217bec, type: 3}
+    audioClip: {fileID: 8300000, guid: d017bc924f101f0428200d1bcd28d2c5, type: 3}
   - sound: 4_fin
-    audioClip: {fileID: 8300000, guid: 0651ac874b533e4438f9e4b9d87cfd1a, type: 3}
+    audioClip: {fileID: 8300000, guid: 2808ff1c407029c4587ff6fb2e432293, type: 3}
 --- !u!82 &955748910
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3408,7 +3408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2893fe17bbc484748832f2aa7fcbbb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePersistance: 1
 --- !u!1 &1030207763
 GameObject:
   m_ObjectHideFlags: 0

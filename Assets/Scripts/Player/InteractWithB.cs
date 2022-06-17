@@ -33,7 +33,6 @@ public class InteractWithB : MonoBehaviour ,IInteractable
             _waveCtrl.GetComponent<WaveShaderExpansion>().Spawn(new Vector3(transform.position.x,transform.position.y, transform.position.z), 4);
             GetComponent<AudioSource>().PlayOneShot(_clip);
             isActivated = !isActivated;
-            GameObject.Find("Player").GetComponent<TipsMessage>().SetStatusTrue("interact");
         }
         return true;
     }

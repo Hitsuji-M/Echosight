@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EndMessage : MonoBehaviour
@@ -26,7 +27,10 @@ public class EndMessage : MonoBehaviour
         {
             _triggered = true;
             _msg.SetActive(true);
-            _msg.GetComponent<MsgFollowPlayer>().SetText("Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes", 0.5f);
+            _msg.GetComponent<MsgFollowPlayer>().SetText(
+                "Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes",
+                0.5f,
+                Color.white);
             _events.SetWin(true);
         }
     }
