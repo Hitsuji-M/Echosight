@@ -73,11 +73,17 @@ public class TakeItem : MonoBehaviour
         item.GetComponent<Rigidbody>().AddForce(Camera.main.ScreenPointToRay(Input.mousePosition).direction * 15 , ForceMode.Impulse);
         _isGrabbed = !_isGrabbed;
         _itemInHand = null;
+        gameObject.GetComponent<TipsMessage>().SetStatusTrue("throw");
     }
 
     public void SetGrabStatus(bool status)
     {
         _canGrab = status;
+    }
+
+    public bool HasItemInHand()
+    {
+        return _itemInHand != null;
     }
 
 }

@@ -11,6 +11,7 @@ public class TipsMessage : MonoBehaviour
     private bool _hasMoved;
     private bool _hasTakenItem;
     private bool _hasInteracted;
+    private bool _hasThrown;
 
 
 
@@ -20,6 +21,10 @@ public class TipsMessage : MonoBehaviour
         _msg = GameObject.Find("TipsMessage");
         _msg.SetActive(false);
         timeLeft = 0;
+        _hasInteracted = false;
+        _hasMoved = false;
+        _hasTakenItem = false;
+        _hasThrown = false;
 
     }
     // Update is called once per frame
@@ -35,14 +40,14 @@ public class TipsMessage : MonoBehaviour
             {
                 if (!_hasMoved)
                 {
-                    _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (1f, 0.5f, 0.5f, 1);
+                    _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0.5f, 0.5f, 1);
                     _msg.SetActive(true);
                     _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Z,Q,S,D pour se déplacer");
                     timeLeft = messagePersistance * 2;
                     SetStatusTrue("move");
                 }
 
-                else if (!_hasTakenItem)
+                else if (!_hasTakenItem || !_hasThrown)
                 {
                     if (hit.collider.gameObject.GetComponent<cakeslice.Outline>().GetOutlineStatus() &&  
                         hit.collider.gameObject.CompareTag("Item") )
@@ -51,6 +56,14 @@ public class TipsMessage : MonoBehaviour
                         _msg.SetActive(true);
                         _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Clic gauche pour prendre un objet");
                         timeLeft = messagePersistance;
+
+                        if ( GameObject.Find("Player").GetComponent<TakeItem>().HasItemInHand() && !_hasThrown)
+                        {
+                            _msg.GetComponent<TMPro.TextMeshPro>().color = new Color (0.5f, 0.5f, 0, 1);
+                            _msg.GetComponent<MsgFollowPlayer>().SetText("\n\n\n\n\n\n Clic droit pour lancer un objet");
+                            timeLeft = messagePersistance;
+
+                        }
                     }
                 }
 
@@ -92,6 +105,10 @@ public class TipsMessage : MonoBehaviour
 
             case "interact" :
                 _hasInteracted = true;
+                return;
+
+            case "throw" :
+                _hasThrown = true;
                 return;
         }
     }
