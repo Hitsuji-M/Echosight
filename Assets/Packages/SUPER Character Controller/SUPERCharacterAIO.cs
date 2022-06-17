@@ -575,7 +575,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         GroundMovementSpeedUpdate();
         if(canJump && (holdJump? jumpInput_Momentary : jumpInput_FrameOf)){Jump(jumpPower);}
 
-        print(body.velocity);
+        //print(body.velocity);
         if (IsFalling() && currentGroundInfo.isInContactWithGround && asTakenOff)
         {
             CallLandingClip();
