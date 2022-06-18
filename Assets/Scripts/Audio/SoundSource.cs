@@ -7,15 +7,19 @@ public class SoundSource : MonoBehaviour
     private AudioSource _soundSrc;
     private AudioClip _soundSFX;
     private GameObject _soundWave;
-
-    // Start is called before the first frame update
+    
+    /// <summary>
+    /// The Start function is called when the game starts
+    /// </summary>
     void Start()
     {
         _soundSrc = GetComponent<AudioSource>();
         _soundSFX = GetComponent<AudioClip>();
     }
-
-    // Update is called once per frame
+    
+    /// <summary>
+    /// > When the player presses the space bar, play a sound and spawn a sound wave
+    /// </summary>
     void Update()
     {
         //Play sound and spawn wave on 'Space'

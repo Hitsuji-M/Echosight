@@ -11,8 +11,11 @@ public class CredScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Button _btn;
     private Image _btnImg;
     private TextMeshProUGUI _btnTxt;
-
-    // Start is called before the first frame update
+    
+    /// <summary>
+    /// > This function gets the button, text, and image components of the pause menu button and adds a listener to the
+    /// button's onClick event
+    /// </summary>
     void Start()
     {
         _btn = GetComponent<Button>();
@@ -21,27 +24,31 @@ public class CredScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _btn.onClick.AddListener(BackToGame);
     }
     
-    /**
-     * Change the button's color when the mouse hover it
-     */
+    /// <summary>
+    /// When the mouse pointer enters the button, change the button's image color to white and the button's text color to
+    /// black
+    /// </summary>
+    /// <param name="eventData">This is the data that is passed to the event.</param>
     public void OnPointerEnter (PointerEventData eventData)
     {
         _btnImg.color = Color.white;
         _btnTxt.color = Color.black;
     }
- 
-    /**
-     * Change the button's color when the mouse exit it
-     */
+    
+    /// <summary>
+    /// When the mouse pointer exits the button, change the button's image color to black and the button's text color to
+    /// white
+    /// </summary>
+    /// <param name="eventData">This is the data that is passed to the event.</param>
     public void OnPointerExit (PointerEventData eventData)
     {
         _btnImg.color = Color.black;
         _btnTxt.color = Color.white;
     }
-
-    /**
-     * Load the title screen scene
-     */
+    
+    /// <summary>
+    /// This function loads the title screen scene
+    /// </summary>
     void BackToGame()
     {
         SceneManager.LoadScene("Scenes/title_screen");

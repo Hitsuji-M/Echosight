@@ -14,10 +14,10 @@ public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Image _btnImg;
     private GameManager _gm;
     public int btnType;
-
-    /**
-     * Set a listener to the button depending of his type attribute
-     */
+    
+    /// <summary>
+    /// Add a listener to a button depending of it's type
+    /// </summary>
     void Start()
     {
         _btn = GetComponent<Button>();
@@ -38,44 +38,49 @@ public class BtnScriptGame : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
     
-    /**
-     * Change the button's color when the mouse hover it
-     */
-    public void OnPointerEnter (PointerEventData eventData)
+    /// <summary>
+    /// When the mouse pointer enters the button, change the button's image color to white and the button's text color to
+    /// black
+    /// </summary>
+    /// <param name="eventData">This is the data that is passed to the event.</param>
+    public void OnPointerEnter(PointerEventData eventData)
     {
         _btnImg.color = Color.white;
         _btnTxt.color = Color.black;
     }
- 
-    /**
-     * Change the button's color when the mouse exit it
-     */
-    public void OnPointerExit (PointerEventData eventData)
+    
+    /// <summary>
+    /// When the mouse pointer exits the button, change the button's image color to black and the button's text color to
+    /// white
+    /// </summary>
+    /// <param name="eventData">This is the data that is passed to the event.</param>
+    public void OnPointerExit(PointerEventData eventData)
     {
         _btnImg.color = Color.black;
         _btnTxt.color = Color.white;
     }
-
-    /**
-     * Resume the game by updating the UI status
-     */
+    
+    /// <summary>
+    /// This function is called when the player clicks the resume button in the pause menu
+    /// </summary>
     private void ResumeGame()
     {
         _gm.UpdateUI();
     }
-
-    /**
-     * Load the scene to reset it
-     */
+    
+    /// <summary>
+    /// ResetRoom() resets the room by reloading the current scene
+    /// </summary>
     private void ResetRoom()
     {
         _gm.UpdateUI();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    /**
-     * Go back to the title_screen scene
-     */
+    
+    /// <summary>
+    /// This function is called when the player clicks the "Quit" button in the pause menu. It sets the cursor movement to
+    /// false, sets the time scale to true, and loads the title screen scene
+    /// </summary>
     private void QuitRoom()
     {
         _gm.SetCursorMvmt(false);

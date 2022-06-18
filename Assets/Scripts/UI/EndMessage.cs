@@ -10,17 +10,21 @@ public class EndMessage : MonoBehaviour
     private GameObject _msg;
     private Events _events;
     
+    /// <summary>
+    /// We find the GameObject called "EndMessage" and store it in a variable called _msg. We then set the _msg GameObject
+    /// to inactive. We also find the GameObject called "GameManager" and store it in a variable called _events
+    /// </summary>
     private void Start()
     {
         _msg = GameObject.Find("EndMessage");
         _msg.SetActive(false);
         _events = GameObject.Find("GameManager").GetComponent<Events>();
     }
-
-    /**
-     * When an object with the tag player enters the trigger
-     * It activates the message object and set his text
-     */
+    
+    /// <summary>
+    /// If the player enters the trigger, the message is displayed and the win event is triggered
+    /// </summary>
+    /// <param name="other">The collider that will trigger the event</param>
     private void OnTriggerEnter(Collider other)
     {
         if (!_triggered && other.gameObject.CompareTag("Player"))

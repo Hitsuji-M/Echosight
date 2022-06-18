@@ -8,12 +8,18 @@ public class  WaterDrop : MonoBehaviour
     private WaveShaderExpansion _waveCtrl;
     [SerializeField] AudioClip[] clips;
 
+    /// <summary>
+    /// It finds the WaveController object and gets the WaveShaderExpansion script from it.
+    /// </summary>
     void Start()
     {
         _waveCtrl = GameObject.Find("WaveController").GetComponent<WaveShaderExpansion>();
         StartCoroutine(SpawnDrop());
     }
 
+    /// <summary>
+    /// "Wait a random amount of time, then spawn a sound wave and play a random sound."
+    /// </summary>
     IEnumerator SpawnDrop()
     {
         while (true)
