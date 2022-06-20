@@ -960,7 +960,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Merci \xE0 tous les b\xEAta-testeurs (Vive le *Nix)\nAinsi qu'\xE0 nos
-    nos 5\xE8me et 6\xE8me membres : Aymeric et Nat"
+    5\xE8me et 6\xE8me membres : Aymeric et Nat"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
