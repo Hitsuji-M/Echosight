@@ -9,7 +9,7 @@ public class AudioRegister : MonoBehaviour
     public List<SoundAudioClip> audioLister;
 
     /// <summary>
-    /// If the folder name is not empty, generate the sound
+    /// If the folder name is not empty, generate the sound list
     /// </summary>
     private void OnValidate()
     {

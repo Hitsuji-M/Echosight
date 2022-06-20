@@ -300,6 +300,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
     Rigidbody body;
     GameObject waveController;
     WaveShaderExpansion controller;
+    private bool _firstCollisionShouldBeSeen;
     private GameObject _gm;
     private Events _events;
     #endregion
@@ -433,6 +434,10 @@ public class SUPERCharacterAIO : MonoBehaviour{
         #region Footstep
         playerAudioSource = GetComponent<AudioSource>();
         #endregion
+
+        #region EchoSight
+        _firstCollisionShouldBeSeen = false;
+        #endregion
     }
 
     private void Start()
@@ -443,6 +448,11 @@ public class SUPERCharacterAIO : MonoBehaviour{
 
     void OnCollisionEnter( Collision other )
     {
+        if (!_firstCollisionShouldBeSeen)
+        {
+            _firstCollisionShouldBeSeen = true;
+            return;
+        }
         if (other.gameObject.CompareTag("Floor"))
         {
             controller.Spawn(transform.position, 5);
