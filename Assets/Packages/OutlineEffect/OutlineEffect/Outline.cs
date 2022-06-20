@@ -45,8 +45,8 @@ namespace cakeslice
 
 		void Start()
 		{
-			OutlineEffect.Instance?.RemoveOutline(this);
 			isOutlined = false;
+			OutlineEffect.Instance?.RemoveOutline(this);
 			outlinePesistanceVar = 0;
 		}
 
@@ -56,6 +56,7 @@ namespace cakeslice
 			SkinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
 			SpriteRenderer = GetComponent<SpriteRenderer>();
 			MeshFilter = GetComponent<MeshFilter>();
+
 		}
 
 		public void OnToggle() 
@@ -73,24 +74,27 @@ namespace cakeslice
 		public void OnDisable()
 		{
 			OutlineEffect.Instance?.RemoveOutline(this);
-			isOutlined = !isOutlined;
+			isOutlined = false;
 		}
 
 		public void OnEnable()
 		{
 			OutlineEffect.Instance?.AddOutline(this);
-			isOutlined = !isOutlined;
+			isOutlined = true;
 			outlinePesistanceVar = OutlinePersistance;
 		}
 
 		void Update()
 		{
-			outlinePesistanceVar = Mathf.Max(0, outlinePesistanceVar - Time.deltaTime);
-
-			if (outlinePesistanceVar == 0 && isOutlined) 
+			if (isOutlined)
 			{
-				OnDisable();
+				outlinePesistanceVar = Mathf.Max(0, outlinePesistanceVar - Time.deltaTime);
+				if (outlinePesistanceVar == 0) 
+				{
+					OnDisable();
+				}
 			}
+
 		}
 
 		public bool GetOutlineStatus()

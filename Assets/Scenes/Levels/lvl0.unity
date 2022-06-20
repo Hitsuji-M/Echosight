@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4959e92930ab64ba321d7acfe5d216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveColor: {r: 1, g: 1, b: 1, a: 0}
+  waveColor: {r: 0.8, g: 0.8, b: 0.8, a: 0}
   material: {fileID: 2100000, guid: d298806b6a1df874bb50a57d26bb95fd, type: 2}
   waveParams: []
   waveOrigin: []
