@@ -75,7 +75,6 @@ public class Events : MonoBehaviour
 
             case 1:
                 LaunchAudio("1_intro");
-                GameObject.Find("Player").GetComponent<TipsMessage>()?.ShowMoveTip();
                 break;
 
             case 2:
@@ -130,6 +129,7 @@ public class Events : MonoBehaviour
         {
             case 2:
                 _gm.SetPlayerStatus(false);
+                GameObject.Find("Player").GetComponent<TipsMessage>()?.ShowMoveTip();
                 break;
             
             case 3:
