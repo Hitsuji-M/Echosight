@@ -12,6 +12,7 @@ public class WaveShaderOnClick : MonoBehaviour
         _waveCtrl = GameObject.Find("WaveController");
         _ctrl = _waveCtrl.GetComponent<WaveShaderExpansion>();
     }
+    
     // Update is called once per frame
     /// <summary>
     /// If the mouse is clicked, then the raycast will be casted from the camera to the mouse position.

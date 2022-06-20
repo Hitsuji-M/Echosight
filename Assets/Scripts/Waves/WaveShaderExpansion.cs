@@ -36,12 +36,21 @@ public class WaveShaderExpansion : MonoBehaviour
 
     float maxRadius;
     OutlineTriggerSphere outlineTriggerCs;
-    // Spawns a sound wave at position given
-    // Spawns an outline trigger sphere with max radius equal to wave strengh parameter
-    // waveStrength [0, infinity[
-    // waveSharpness [0, 1]
-    // waveFade [0, infinity[
-    // waveIntensity [0, 1]
+
+    /// <summary>
+    /// > This function spawns a new sound wave at the given position, with the given parameters
+    /// > Also spawns a outline trigger sphere with max radius equal to wave strength parameter*
+    /// Spawns an outline trigger sphere with max radius equal to wave strength parameter
+    /// waveStrength [0, infinity[
+    /// waveSharpness [0, 1]
+    /// waveFade [0, infinity[
+    /// waveIntensity [0, 1]
+    /// </summary>
+    /// <param name="Vector3">spawnPoint - The position of the sound wave</param>
+    /// <param name="waveStrength">The strength of the wave.</param>
+    /// <param name="waveSharpness">How sharp the wave is.</param>
+    /// <param name="waveFade">How fast the wave fades out.</param>
+    /// <param name="waveIntensity">The intensity of the wave.</param>
     public void Spawn(Vector3 spawnPoint, float waveStrength = 0, float waveSharpness = 0.5f, float waveFade = 3, float waveIntensity = 1f) 
     {
         /****************Spawn new sound wave*****************/
@@ -58,11 +67,13 @@ public class WaveShaderExpansion : MonoBehaviour
 
         /*****************Switch to next wave*****************/
         waveIndex = (waveIndex + 1) % nbWaves;
-
     }
-
-    // Update is called once per frame
-    // At each frame, increase the radius of the waves, depending on the wave speed (static constant) and the wave max radius
+    
+    /// <summary>
+    /// At each frame, increase the radius of the waves, depending on the wave speed (static constant) and the wave max radius
+    /// For each wave, we increase the radius of the wave by a small amount, and then we update the shader with the new
+    /// radius
+    /// </summary>
     void Update()
     {
         material.SetInt("nbWave", nbWaves);

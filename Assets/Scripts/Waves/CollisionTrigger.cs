@@ -10,8 +10,7 @@ public class CollisionTrigger : MonoBehaviour
     private Rigidbody _rb;
     private Vector3 _pos;
     private Quaternion _rotation;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         _waveCtrl = GameObject.Find("WaveController");
@@ -23,9 +22,11 @@ public class CollisionTrigger : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// If the position of the object is below -5, replace the object at its initial position and rotation
+    /// </summary>
     void Update()
     {
-        // If the position is below -5, replace objects at their initial position
         if (transform.position.y < -5)
         {
             transform.position = _pos;
@@ -33,8 +34,12 @@ public class CollisionTrigger : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
-
-    // On Collision spawns a wave depending collider attributes
+    
+    /// <summary>
+    /// > When the object collides with something, spawn a sound wave at the collision point, with a strength, sharpness,
+    /// and fade based on the object's mass and velocity
+    /// </summary>
+    /// <param name="collision">The collision that happened.</param>
     void OnCollisionEnter(Collision collision)
     {
         float impact = _rb.mass * _rb.velocity.magnitude * 20;
