@@ -32,7 +32,7 @@ public class EndMessage : MonoBehaviour
             _triggered = true;
             _msg.SetActive(true);
             _msg.GetComponent<MsgFollowPlayer>().SetText(
-                "Félicitations, vous avez fini le niveau\nen " + Time.time + " secondes",
+                "Félicitations, vous avez fini le niveau\nen " + Math.Round(Time.timeSinceLevelLoad, 2) + " secondes",
                 0.5f,
                 Color.white);
             _events.SetWin(true);

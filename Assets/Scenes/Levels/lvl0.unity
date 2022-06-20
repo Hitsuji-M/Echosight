@@ -656,7 +656,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1112,7 +1112,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6035,15 +6035,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: lineColor2.b
-      value: 0.23316002
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: lineColor2.g
-      value: 0
+      value: 0.6465683
       objectReference: {fileID: 0}
     - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: lineColor2.r
-      value: 1
+      value: 0.1514774
       objectReference: {fileID: 0}
     - target: {fileID: 7314782382079677044, guid: d13b25d26fd377047b897c96f72fc93a, type: 3}
       propertyPath: useFillColor
@@ -7538,7 +7538,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
