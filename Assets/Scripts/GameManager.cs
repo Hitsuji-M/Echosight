@@ -89,7 +89,15 @@ public class GameManager : MonoBehaviour
     /// <param name="status">true = locked, false = confined</param>
     public void SetCursorMvmt(bool status)
     {
-        Cursor.lockState = status ? CursorLockMode.Locked : CursorLockMode.Confined;
+        if (status)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
     }
     
     /// <summary>
