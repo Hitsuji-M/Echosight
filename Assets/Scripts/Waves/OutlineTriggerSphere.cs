@@ -16,7 +16,7 @@ public class OutlineTriggerSphere : MonoBehaviour
     }
     
     /// <summary>
-    /// > The radius of the sphere collider is increased by the wave speed every frame. If the radius is greater than 80% of
+    /// > The radius of the sphere collider is increased by deltaTime every frame. If the radius is greater than 80% of
     /// the maximum radius, the game object is destroyed
     /// </summary>
     void Update()

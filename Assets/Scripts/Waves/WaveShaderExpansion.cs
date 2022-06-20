@@ -40,17 +40,21 @@ public class WaveShaderExpansion : MonoBehaviour
     /// <summary>
     /// > This function spawns a new sound wave at the given position, with the given parameters
     /// > Also spawns a outline trigger sphere with max radius equal to wave strength parameter*
-    /// Spawns an outline trigger sphere with max radius equal to wave strength parameter
-    /// waveStrength [0, infinity[
-    /// waveSharpness [0, 1]
-    /// waveFade [0, infinity[
-    /// waveIntensity [0, 1]
     /// </summary>
-    /// <param name="Vector3">spawnPoint - The position of the sound wave</param>
+    /// <param name="spawnPoint">The position of the sound wave origin</param>
+
     /// <param name="waveStrength">The strength of the wave.</param>
-    /// <param name="waveSharpness">How sharp the wave is.</param>
+    /// waveStrength [0, infinity[
+
+    /// <param name="waveSharpness">Wave width.</param>
+    /// waveSharpness [0, 1]
+
     /// <param name="waveFade">How fast the wave fades out.</param>
+    /// waveFade [0, infinity[
+
     /// <param name="waveIntensity">The intensity of the wave.</param>
+    /// waveIntensity [0, 1]
+
     public void Spawn(Vector3 spawnPoint, float waveStrength = 0, float waveSharpness = 0.5f, float waveFade = 3, float waveIntensity = 1f) 
     {
         /****************Spawn new sound wave*****************/
