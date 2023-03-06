@@ -8,12 +8,12 @@ This is just a POC (Equivalent to the tutorial) to show how the game works. Ever
 
 #### Contributors
 
-[Hitsuji](https://github.com/Hitsuji-M)
-[ZEN](https://github.com/Lolozendev)
-[Velaris](https://github.com/AstridWinkler)
-[Franck](https://github.com/Franck-Jiang)
+- [Hitsuji](https://github.com/Hitsuji-M)
+- [ZEN](https://github.com/Lolozendev)
+- [Velaris](https://github.com/AstridWinkler)
+- [Franck](https://github.com/Franck-Jiang)
 
-### ...
+### I Want To Play A Game.
 
 *You are waking up...* <br>
 
