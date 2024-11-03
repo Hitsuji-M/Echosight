@@ -7,7 +7,7 @@ You can just download the release [here](https://github.com/Hitsuji-M/Echosight/
 Keep in mind that it was our first time doing a Unity game and it's a student projet ^^
 
 ### What is it ?
-Echosight is a project made with Unity and C# as a final project for my first year in my engineer degree. <br>
+Echosight is a project made with Unity and C# as a final project for my first year in our engineer degree. <br>
 This is just a POC (Equivalent to the tutorial) to show how the game works. Everything has been made so we can extend the game with more levels and more detailed story.
 
 #### Contributors
